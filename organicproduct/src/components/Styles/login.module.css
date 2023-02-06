@@ -1,0 +1,55 @@
+.mainDiv{
+    width: 35%;
+    margin: auto;
+    /* border: 2px solid; */
+    box-sizing: border-box;
+    padding: 0 20px;
+    margin-bottom: 100px;
+}
+.mainDiv>div:first-child{
+    /* display: flex; */
+    /* justify-content: center; */
+    text-align: center;
+
+}
+.mainDiv>div:first-child>p{
+    font-size: 25px;
+    color: rgb(59, 77, 62);
+}
+.mainDiv>form>input{
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    font-size: 18px;
+}
+.mainDiv>form>a{
+    color: rgb(59, 77, 62);
+    text-decoration: underline;
+    display: block;
+    font-size: 14px;
+}
+.mainDiv>form>button{
+    /* width: 40%; */
+    display: block;
+    margin: auto;
+    background-color: rgb(59, 77, 62);
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 50px;
+    /* height: 45px; */
+    border-radius: 10px;
+    border: none;
+}
+.mainDiv>a:last-child{
+    color: rgb(59, 77, 62);
+    text-decoration: underline;
+    display: block;
+    font-size: 14px;
+    margin: auto;
+    width: fit-content;
+}
+#createBtn{
+    background-color: gray;
+    color: white;
+}
