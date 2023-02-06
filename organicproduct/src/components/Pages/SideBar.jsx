@@ -20,12 +20,12 @@ export default function SideBar() {
         <NavLink to={"/shopAll"} style={({isActive}) => {
                       return isActive ? activePage : undefined;
                     }}>Shop All</NavLink>
+          <NavLink to={"/newArrival"} style={({isActive}) => {
+                        return isActive ? activePage : undefined;
+                      }}>New Arrival</NavLink>
         <NavLink to={"/bestsellers"} style={({isActive}) => {
                       return isActive ? activePage : undefined;
                     }}>Best Sellers</NavLink>
-        <NavLink to={"/newArrival"} style={({isActive}) => {
-                      return isActive ? activePage : undefined;
-                    }}>New Arrival</NavLink>
       </div>
     </div>
   );

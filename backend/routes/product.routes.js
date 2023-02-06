@@ -4,6 +4,8 @@ const QueryFinder = require('../utils/queryFinder.js');
 
 const productRoutes = express.Router()
 
+//for all product (http://localhost:8080/products)
+
 productRoutes.get('/', async (req, res) => {
     const { mainCat, limit } = req.query;
     try {
