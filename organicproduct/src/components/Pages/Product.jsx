@@ -1,28 +1,32 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import Styles from "../Styles/product.module.css"
-import Items from './Items'
+import SingleProductPage from './singleProductPage'
 
 export default function Product({name,data}) {
-  const [sorting, setsorting]=useState(data)
-  function sortByPrice(event){
+  const [sorting, setsorting] = useState([...data])
+  const [istrue, setisture] = useState(0)
+  function sortByPrice(event) {
    
-    switch(event.target.value){
-      case "LTH": const data1= sorting.sort((a,b)=>a.price-b.price);
-      console.log(data1)
+    if (event.target.value === "LTH") {
+      const data1 = sorting.sort((a, b) => a.price - b.price);
+      setisture(1)
       setsorting(data1);
-      break;
-      case "HTL": const data2= sorting.sort((a,b)=>b.price-a.price);
-      console.log(data2)
-      setsorting(data2);
-      break;
-      case "feature": const data3=data;
-      console.log(data3)
-      setsorting(data3);
-      break;
     }
-    // data= data.sort((a,b)=>a.price-b.price)
+    else if (event.target.value === "HTL") {
+      const data1 = sorting.sort((a, b) => b.price - a.price);
+      setisture(2)
+      setsorting(data1);
+    }
+    else {
+      setisture(3)
+      setsorting(data);
+    }
   }
+//  console.log(process.env.REACT_APP_URL)
+  useEffect(() => {
+    setisture(0)
+  },[sorting, istrue])
   return (
     <div className={Styles.mainDiv}>
       <div>
@@ -38,7 +42,7 @@ export default function Product({name,data}) {
             </select>
         </div>
       </div>
-      <div>{sorting.map((elem)=><Items itemsData={elem}/>)}</div>
+      <div>{sorting.map((elem)=><SingleProductPage key={elem.id} itemsData={elem}/>)}</div>
     </div>
   )
 }

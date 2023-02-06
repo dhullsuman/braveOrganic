@@ -4,7 +4,7 @@ import Styles from "../Styles/Items.module.css"
 import {BiHeart} from "react-icons/bi"
 import { useNavigate } from "react-router-dom";
 
-export default function Items({itemsData}) {
+export default function SingleProductPage({itemsData}) {
   const ref=useRef(null);
   const navigate=useNavigate()
   function onHover(){

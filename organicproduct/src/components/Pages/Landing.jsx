@@ -5,7 +5,7 @@ import {
   RiCheckboxBlankCircleLine,
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
-import Items from "./Items";
+import Items from "./singleProductPage";
 // import Media from "./media";
 // import Footer from "./Footer";
 import { bestSeller, solution, spotlight } from "../Data/Data";

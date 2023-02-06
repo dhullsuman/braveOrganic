@@ -17,9 +17,9 @@ export default function AllRouter() {
       <Routes>
         <Route path={"/"} element={<Landing />} />
         <Route path={"/bestsellers"} element={<Bestsellers />} />
-        <Route path={"/newArrival"} element={<NewArrival />} />
-        <Route path={"/newArrival/:id"} element={<Card />} />
-        <Route path={"/shopAll"} element={<ShopAll />} />
+        <Route path={"/newarrival"} element={<NewArrival />} />
+        <Route path={"/newarrival/:id"} element={<Card />} />
+        <Route path={"/shopall"} element={<ShopAll />} />
         {/* <Route
           path={"/about"}
           element={
