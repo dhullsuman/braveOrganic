@@ -5,10 +5,10 @@ import {
   RiCheckboxBlankCircleLine,
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
-import Items from "./singleProductPage";
 // import Media from "./media";
 // import Footer from "./Footer";
 import { bestSeller, solution, spotlight } from "../Data/Data";
+import ProductCardPage from "./ProductCardPage";
 
 const images = {
   img1: "https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Home-Page-Carousel-Desktop--_-1_-5-Offer_1000x.jpg?v=1671095997",
@@ -71,7 +71,7 @@ export default function Landing() {
             <div></div>
           </div>
           <div><Carousel className={Styles.carousl} breakPoints={breakPoints}>
-            {bestSeller.map((elem)=><Items itemsData={elem}/>)}
+            {bestSeller.map((elem)=><ProductCardPage itemsData={elem}/>)}
             </Carousel></div>
         </div>
         <div className={Styles.mainDiv4}>

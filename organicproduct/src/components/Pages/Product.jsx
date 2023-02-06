@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import Styles from "../Styles/product.module.css"
-import SingleProductPage from './singleProductPage'
+import ProductCardPage from './ProductCardPage'
 
-export default function Product({name,data}) {
+export default function Product({ name, data }) {
   const [sorting, setsorting] = useState([...data])
   const [istrue, setisture] = useState(0)
+  console.log(data)
   function sortByPrice(event) {
    
     if (event.target.value === "LTH") {
@@ -26,7 +27,11 @@ export default function Product({name,data}) {
 //  console.log(process.env.REACT_APP_URL)
   useEffect(() => {
     setisture(0)
-  },[sorting, istrue])
+  }, [sorting, istrue])
+  useEffect(() => {
+    setsorting([...data])
+
+  },[])
   return (
     <div className={Styles.mainDiv}>
       <div>
@@ -42,7 +47,7 @@ export default function Product({name,data}) {
             </select>
         </div>
       </div>
-      <div>{sorting.map((elem)=><SingleProductPage key={elem.id} itemsData={elem}/>)}</div>
+      <div>{sorting.map((elem)=><ProductCardPage key={elem._id} itemsData={elem}/>)}</div>
     </div>
   )
 }

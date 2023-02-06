@@ -4,8 +4,9 @@ import Styles from "../Styles/Items.module.css"
 import {BiHeart} from "react-icons/bi"
 import { useNavigate } from "react-router-dom";
 
-export default function SingleProductPage({itemsData}) {
-  const ref=useRef(null);
+export default function ProductCardPage({itemsData}) {
+  // console.log(itemsData)
+  const ref = useRef(null);
   const navigate=useNavigate()
   function onHover(){
     ref.current.src=itemsData.img2;
@@ -16,14 +17,14 @@ export default function SingleProductPage({itemsData}) {
 
   
   return (
-    <div className={Styles.main} onMouseOver={onHover} onMouseOut={outHover} onClick={()=>navigate(`/newArrival/:${itemsData.id}`)}>
+    <div className={Styles.main} onMouseOver={onHover} onMouseOut={outHover} onClick={()=>navigate(`/newArrival/${itemsData._id}`)}>
       <div>
         <img src={itemsData.img1} alt="pic1" ref={ref}/>
         <div>
-            <div>
-                <p>#1</p>
-                <p>BEST SELLER</p> 
-            </div>
+          <div>
+            {itemsData.subCat === "best" && <><p>#1</p>
+            <p>BEST SELLER</p></>}
+          </div>
             <div>
                 <p>32% OFF</p>
             </div>
@@ -34,13 +35,13 @@ export default function SingleProductPage({itemsData}) {
       </div>
       {/* <div> */}
         <div>
-          <h4>{itemsData.heading}</h4>
-          <p>{itemsData.disc}</p>
+          <h4>{itemsData.title}</h4>
+          <p>{itemsData.desc}</p>
         </div>
         <div>
           <div>
             <p>₹{itemsData.price}</p>
-            <p>₹{itemsData.MRP}</p>
+            <p>₹{itemsData.origionalPrice}</p>
           </div>
           <p>{itemsData.rating}★</p>
         {/* </div> */}
