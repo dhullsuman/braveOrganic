@@ -1,11 +1,12 @@
-import { ProductFailure, ProductRequest, NewArrivalProductSucessfull, BestProductSucessfull, ShopProductSucessfull } from "./actionType"
+import { ProductFailure, ProductRequest, NewArrivalProductSucessfull, BestProductSucessfull, ShopProductSucessfull, LandingProductSucessfull } from "./actionType"
 
 const initialState = {
     isError: false,
     isLoading: false,
     newProduct: [],
     bestProduct: [],
-    shopProduct:[]
+    shopProduct: [],
+    landingProduct:[]
 }
 
 export const ProductReducer = (state=initialState, action) => {
@@ -15,6 +16,7 @@ export const ProductReducer = (state=initialState, action) => {
         case NewArrivalProductSucessfull: return { ...state, isLoading: false, newProduct: action.payload }
         case BestProductSucessfull: return { ...state, isLoading: false, bestProduct: action.payload }
         case ShopProductSucessfull: return { ...state, isLoading: false, shopProduct: action.payload }
+        case LandingProductSucessfull: return { ...state, isLoading: false, landingProduct: action.payload }
         default:return state
     }
 }

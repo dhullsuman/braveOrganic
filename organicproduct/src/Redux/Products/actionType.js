@@ -1,5 +1,6 @@
 export const NewArrivalProductSucessfull = "NewArrivalProductSucessfull"
 export const BestProductSucessfull = "BestProductSucessfull"
 export const ShopProductSucessfull = "ShopProductSucessfull"
+export const LandingProductSucessfull = "LandingProductSucessfull"
 export const ProductFailure = "ProductFailure"
 export const ProductRequest = "ProductRequest"

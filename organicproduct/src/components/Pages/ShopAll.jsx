@@ -25,7 +25,7 @@ export default function ShopAll() {
   return (
     <div className={Style.mainDiv}>
       <SideBar/>
-      {shopProduct.length>0 && <Product name={"All Product"} data={shopProduct} />}
+      {shopProduct.length>0 && <Product name={"All Product"} data={shopProduct} cat="shopall"/>}
     </div>
   )
 }

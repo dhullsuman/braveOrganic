@@ -25,7 +25,7 @@ export default function NewArrival() {
   return (
     <div className={Style.mainDiv}>
       <SideBar />
-      {newProduct.length>0 && <Product name={"New Arrivals"} data={newProduct} />}
+      {newProduct.length>0 && <Product name={"New Arrivals"} data={newProduct} cat="newarrival" />}
     </div>
   );
 }

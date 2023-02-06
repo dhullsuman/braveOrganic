@@ -4,7 +4,7 @@ import Styles from "../Styles/Items.module.css"
 import {BiHeart} from "react-icons/bi"
 import { useNavigate } from "react-router-dom";
 
-export default function ProductCardPage({itemsData}) {
+export default function ProductCardPage({itemsData, cat}) {
   // console.log(itemsData)
   const ref = useRef(null);
   const navigate=useNavigate()
@@ -17,7 +17,7 @@ export default function ProductCardPage({itemsData}) {
 
   
   return (
-    <div className={Styles.main} onMouseOver={onHover} onMouseOut={outHover} onClick={()=>navigate(`/newArrival/${itemsData._id}`)}>
+    <div id={cat==="home" ? Styles.main:""} className={Styles.main} onMouseOver={onHover} onMouseOut={outHover} onClick={()=>navigate(`/${cat}/${itemsData._id}`)}>
       <div>
         <img src={itemsData.img1} alt="pic1" ref={ref}/>
         <div>

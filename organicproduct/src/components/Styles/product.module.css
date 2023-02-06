@@ -19,6 +19,9 @@
     align-items: center;
     /* text-align: center; */
 }
+.mainDiv>div:first-child>div:first-child>h2{
+ text-transform: uppercase;
+}
 .mainDiv>div:first-child>div:first-child{
     width: 70%;
     text-align: center;

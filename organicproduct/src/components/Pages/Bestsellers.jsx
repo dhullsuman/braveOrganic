@@ -25,7 +25,7 @@ export default function Bestsellers() {
   return (
     <div className={Style.mainDiv}>
       <SideBar/>
-      {bestProduct.length>0 && <Product name={"BEST SELLERS"} data={bestProduct} />}
+      {bestProduct.length>0 && <Product name={"BEST SELLERS"} data={bestProduct} cat="bestseller"/>}
     </div>
   )
 }

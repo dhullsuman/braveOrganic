@@ -6,11 +6,15 @@
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    margin: auto;
+    /* margin: auto; */
+    /* margin-bottom: 30px; */
     flex-wrap: wrap;
   position: relative;
     align-self: normal;
 
+}
+#main{
+    margin-bottom: 30px;
 }
 .main>button{
     display: inline-block;

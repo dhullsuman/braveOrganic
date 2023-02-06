@@ -19,8 +19,8 @@ import { Link, NavLink } from "react-router-dom";
 // import MailIcon from '@mui/icons-material/Mail';
 const arr = [
   { title: "HOME", link: "/" },
-  { title: "SHOP ALL", link: "/shopAll" },
-  { title: "NEW ARRIVALS", link: "/newArrival" },
+  { title: "SHOP ALL", link: "/shopall" },
+  { title: "NEW ARRIVALS", link: "/newarrival" },
   { title: " BEST SELLERS", link: "/bestsellers" },
   // { title: "ABOUT", link: "/about" },
 ];
