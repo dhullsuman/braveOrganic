@@ -1,7 +1,6 @@
 .mainDiv{
     width: 80%;
     box-sizing: border-box;
-    /* border: 2px solid; */
 }
 .mainDiv>div:first-child{
     display: flex;
@@ -9,6 +8,10 @@
     justify-content: space-between;
     width: 100%;
     box-sizing: border-box;
+    margin: 1rem 0;
+}
+.mainDiv>div:first-child>div:last-child>p{
+   font-size: 1rem;font-weight: 600;
 }
 .mainDiv>div:first-child>div:last-child{
     /* border: 2px solid pink; */
@@ -21,6 +24,8 @@
 }
 .mainDiv>div:first-child>div:first-child>h2{
  text-transform: uppercase;
+ font-size: 1.5rem;
+ font-weight: 700;
 }
 .mainDiv>div:first-child>div:first-child{
     width: 70%;

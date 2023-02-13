@@ -42,13 +42,12 @@ export default function Landing() {
     ref.current.src = images.img3;
     setIcon({ ...icon, image3: true, image2: false, image1: false });
   }
-
   const landingProduct = useSelector((a)=>a.ProductReducer.landingProduct)
   const dispatch = useDispatch();
   async function getArrivalData() {
     dispatch(handleProaductRequest())
     try {
-      const res = await axios.get(`${process.env.REACT_APP_URL}/products?subCat=best&limit=10`);
+      const res = await axios.get(`http://localhost:8080/products?subCat=best&limit=10`);
       dispatch(handleLandingProaductSucessfull(res.data.data))
     } catch (e) {
       dispatch(handleProaductFailure())
@@ -128,8 +127,8 @@ export default function Landing() {
         }}
         modules={[Keyboard, Pagination]}>
               {landingProduct?.map((elem) => (
-                <SwiperSlide>
-                  <ProductCardPage itemsData={elem} cat="home" />
+                <SwiperSlide key={elem._id}>
+                  <ProductCardPage itemsData={elem} cat="home"  />
                 </SwiperSlide>
               ))}
             </Swiper>

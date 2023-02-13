@@ -2,21 +2,23 @@ import React from "react";
 import Styles from "../Styles/sideBar.module.css";
 import { BiSliderAlt } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
+import { Box, Text } from "@chakra-ui/react";
 
 export default function SideBar() {
   const activePage = {
     textDecoration: "underline",
-    color: "black",
+    fontWeight:800,
+    color: "rgb(59,77,62)",
   };
   return (
-    <div className={Styles.categ}>
-      <div>
+    <Box className={Styles.categ}>
+      <Box>
         <BiSliderAlt />
-        <p>REFINE BY</p>
-      </div>
-      <h3>CATEGORIES</h3>
+        <Text as="p">REFINE BY</Text>
+      </Box>
+      <Text as="h4">CATEGORIES</Text>
       <hr />
-      <div>
+      <Box>
         <NavLink to={"/shopAll"} style={({isActive}) => {
                       return isActive ? activePage : undefined;
                     }}>Shop All</NavLink>
@@ -26,7 +28,7 @@ export default function SideBar() {
         <NavLink to={"/bestsellers"} style={({isActive}) => {
                       return isActive ? activePage : undefined;
                     }}>Best Sellers</NavLink>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

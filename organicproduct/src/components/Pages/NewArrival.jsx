@@ -13,7 +13,7 @@ export default function NewArrival() {
   async function getArrivalData() {
     dispatch(handleProaductRequest())
     try {
-      const res = await axios.get(`${process.env.REACT_APP_URL}/products?mainCat=newArrival`);
+      const res = await axios.get(`http://localhost:8080/products?mainCat=newArrival`);
       dispatch(handleNewArrivalProaductSucessfull(res.data.data))
     } catch (e) {
       dispatch(handleProaductFailure())

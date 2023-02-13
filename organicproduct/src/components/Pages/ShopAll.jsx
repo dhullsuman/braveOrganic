@@ -5,6 +5,7 @@ import Style from "../Styles/card.module.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { handleProaductFailure, handleProaductRequest, handleShopProaductSucessfull } from '../../Redux/Products/action'
 import axios from 'axios'
+import { Box } from '@chakra-ui/react'
 
 
 export default function ShopAll() {
@@ -13,7 +14,7 @@ export default function ShopAll() {
   async function getArrivalData() {
     dispatch(handleProaductRequest())
     try {
-      const res = await axios.get(`${process.env.REACT_APP_URL}/products?mainCat=shopall`);
+      const res = await axios.get(`http://localhost:8080/products?mainCat=shopall`);
       dispatch(handleShopProaductSucessfull(res.data.data))
     } catch (e) {
       dispatch(handleProaductFailure())
@@ -23,9 +24,9 @@ export default function ShopAll() {
     getArrivalData();
   },[])
   return (
-    <div className={Style.mainDiv}>
+    <Box className={Style.mainDiv}>
       <SideBar/>
       {shopProduct.length>0 && <Product name={"All Product"} data={shopProduct} cat="shopall"/>}
-    </div>
+    </Box>
   )
 }

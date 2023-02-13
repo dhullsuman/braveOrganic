@@ -15,6 +15,7 @@
 }
 #main{
     margin-bottom: 30px;
+    /* border: 1px solid red; */
 }
 .main>button{
     display: inline-block;
@@ -27,7 +28,12 @@
     border-radius: 5px;
     /* position: absolute; */
     bottom: 0;left: 0;
+    font-weight: 900;
     margin-top: auto;
+}
+.main>button:hover{
+    background-color: rgb(59, 77, 62);
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 .main>div:nth-child(1){
     width: 100%;
@@ -100,8 +106,11 @@ align-items: center;
     height: 100%;
     width: 100%;
 }
+.main>div:nth-child(2)>h4{
+    font-size: 1.12rem;font-weight: 600;
+}
 .main>div:nth-child(2)>p{
-    margin-top: -15px;
+    /* margin-top: -15px; */
 font-weight:600;
 max-lines: 2;
 font-size: 14px;
@@ -119,7 +128,7 @@ font-size: 14px;
     box-sizing: border-box;
     margin-top: auto;
     position: absolute;
-    bottom: 8%;
+    bottom: 10%;
     align-items: center;
     padding: 0 10px;
 

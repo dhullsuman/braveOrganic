@@ -3,6 +3,7 @@ import Styles from "../Styles/Items.module.css"
 // import {AiFillHeart} from "react-icons/ai"
 import {BiHeart} from "react-icons/bi"
 import { useNavigate } from "react-router-dom";
+import { Box, Button, Text } from "@chakra-ui/react";
 
 export default function ProductCardPage({itemsData, cat}) {
   // console.log(itemsData)
@@ -17,37 +18,37 @@ export default function ProductCardPage({itemsData, cat}) {
 
   
   return (
-    <div id={cat==="home" ? Styles.main:""} className={Styles.main} onMouseOver={onHover} onMouseOut={outHover} onClick={()=>navigate(`/${cat}/${itemsData._id}`)}>
-      <div>
+    <Box id={cat==="home" ? Styles.main:""} className={Styles.main} onMouseOver={onHover} onMouseOut={outHover} onClick={()=>navigate(`/${cat}/${itemsData._id}`)}>
+      <Box>
         <img src={itemsData.img1} alt="pic1" ref={ref}/>
-        <div>
-          <div>
-            {itemsData.subCat === "best" && <><p>#1</p>
-            <p>BEST SELLER</p></>}
-          </div>
-            <div>
-                <p>32% OFF</p>
-            </div>
-        </div>
+        <Box>
+          <Box>
+            {itemsData.subCat === "best" && <><Text as="p">#1</Text>
+            <Text as="p">BEST SELLER</Text></>}
+          </Box>
+            <Box>
+                <Text as="p">32% OFF</Text>
+            </Box>
+        </Box>
         {/* <p>♡</p> */}
         <BiHeart className={Styles.heart}/>
         {/* <AiFillHeart/> */}
-      </div>
+      </Box>
       {/* <div> */}
-        <div>
-          <h4>{itemsData.title}</h4>
-          <p>{itemsData.desc}</p>
-        </div>
-        <div>
-          <div>
-            <p>₹{itemsData.price}</p>
-            <p>₹{itemsData.origionalPrice}</p>
-          </div>
-          <p>{itemsData.rating}★</p>
+        <Box>
+          <Text as="h4">{itemsData.title}</Text>
+          <Text as="p">{itemsData.desc}</Text>
+        </Box>
+        <Box>
+          <Box>
+            <Text as="p">₹{itemsData.price}</Text>
+            <Text as="p">₹{itemsData.origionalPrice}</Text>
+          </Box>
+          <Text as="p">{itemsData.rating}★</Text>
         {/* </div> */}
-      </div>
-      <button>ADD TO CART</button>
-    </div>
+      </Box>
+      <Button>ADD TO CART</Button>
+    </Box>
   );
 }
 

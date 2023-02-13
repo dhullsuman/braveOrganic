@@ -5,6 +5,7 @@ import {BiHeart} from "react-icons/bi"
 // import { useDispatch } from "react-redux";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { Box, Button, Image, Text } from "@chakra-ui/react";
 
 export default function SinglePage() {
     const [data, setData] = useState({})
@@ -14,7 +15,7 @@ export default function SinglePage() {
     // console.log(id);
   async function getArrivalData() {
       try {
-      const res = await axios.get(`${process.env.REACT_APP_URL}/products/${id.id}`);
+      const res = await axios.get(`http://localhost:8080/products/${id.id}`);
     //   (res.data.data)
           setData(res.data.singleProduct)
     } catch (e) {
@@ -27,62 +28,62 @@ export default function SinglePage() {
   
   return (
          <>
-         <div className={Styles.topImg}>
-         <img src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/1_5-Offer-Desktop-Upsell-V1_1200x.jpg?v=1671099969" alt="" /></div>
+         <Box className={Styles.topImg}>
+         <Image src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/1_5-Offer-Desktop-Upsell-V1_1200x.jpg?v=1671099969" alt="" /></Box>
         
-      <div className={Styles.singleItem}>
-    <div className={Styles.main}>
-      <div>
-        <img src={data.img1} alt="pic1" ref={ref}/>
-        <div>
-          <div>
+      <Box className={Styles.singleItem}>
+    <Box className={Styles.main}>
+      <Box>
+        <Image src={data.img1} alt="pic1" ref={ref}/>
+        <Box>
+          <Box>
               {data.subCat === "best" &&
-                <><p>#1</p>
-                <p>BEST SELLER</p></>}
-              </div>
-            <div>
-                <p>{data.Off} OFF</p>
-            </div>
-        </div>
+                <><Text as="p">#1</Text>
+                <Text as="p">BEST SELLER</Text></>}
+              </Box>
+            <Box>
+                <Text as="p">{data.Off} OFF</Text>
+            </Box>
+        </Box>
         {/* <p>♡</p> */}
         <BiHeart className={Styles.heart}/>
         {/* <AiFillHeart/> */}
-      </div>
+      </Box>
       {/* <div> */}
         
-    <div>
+    <Box>
         <img src={data.img1} alt="" onClick={()=>{ref.current.src=data.img1}}/>
         <img src={data.img2} alt=""  onClick={()=>{ref.current.src=data.img2}}/>
         <img src={data.img3} alt=""  onClick={()=>{ref.current.src=data.img3}}/>
         <img src={data.img4} alt=""  onClick={()=>{ref.current.src=data.img4}}/>
-    </div>
-    </div>
+    </Box>
+    </Box>
     
-    <div className={Styles.main1}>
-        <div>
-          <h2>{data.title}</h2>
-          <p>{data.desc}</p>
-        </div>
-        <div>
-          <div>
-            <p>-{data.Off}</p>
-            <p>₹{data.price}</p>
-          </div>
-           <p>{data.rating}★</p>
+    <Box className={Styles.main1}>
+        <Box>
+          <Text as="h2">{data.title}</Text>
+          <Text as="p">{data.desc}</Text>
+        </Box>
+        <Box>
+          <Box>
+            <Text as="p">-{data.Off}</Text>
+            <Text as="p">₹{data.price}</Text>
+          </Box>
+           <Text as="p">{data.rating}★</Text>
         {/* </div> */}
-      </div>
-      <div>
-        <p>M.R.P.: <span>₹{data.origionalPrice}</span></p>
-        <p>Inclusive of all taxes</p>
-      </div>
-      <div>
-        <button onClick={()=>setquty(quty-1)} disabled={quty==1}>-</button>
-        <button>{quty}</button>
-        <button onClick={()=>setquty(quty+1)} disabled={quty==5}>+</button>
-      </div>
-      <button>ADD TO CART</button>
-      </div>
-      </div></>
+      </Box>
+      <Box>
+        <Text as="p">M.R.P.: <span>₹{data.origionalPrice}</span></Text>
+        <Text as="p">Inclusive of all taxes</Text>
+      </Box>
+      <Box>
+        <Button onClick={()=>setquty(quty-1)} isDisabled={quty===1}>-</Button>
+        <Button>{quty}</Button>
+        <Button onClick={()=>setquty(quty+1)} isDisabled={quty===5}>+</Button>
+      </Box>
+      <Button>ADD TO CART</Button>
+      </Box>
+      </Box></>
   );
 }
 const data={

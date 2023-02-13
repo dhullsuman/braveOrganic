@@ -81,7 +81,7 @@
 .mainDiv4,.mainDiv5,.mainDiv3,.mainDiv6{
     margin: 2rem 0;
 }
-.mainDiv4>div:nth-child(1), .mainDiv5>div:nth-child(1), .mainDiv6>div:nth-child(1){
+.mainDiv4>div:nth-child(1), .mainDiv5>div:nth-child(1), .mainDiv6>div:nth-child(1), .mainDiv3>div:nth-child(1){
     display: flex;
     align-items: center;
     justify-content: center;

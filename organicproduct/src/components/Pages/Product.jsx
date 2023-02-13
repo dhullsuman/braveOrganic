@@ -1,3 +1,4 @@
+import { Box, Select, Text } from '@chakra-ui/react';
 import React, { useEffect, useRef } from 'react'
 import { useState } from 'react';
 import Styles from "../Styles/product.module.css"
@@ -33,21 +34,23 @@ export default function Product({ name, data, cat }) {
 
   },[])
   return (
-    <div className={Styles.mainDiv}>
-      <div>
-        <div>
-            <h2>#{name}</h2>
-        </div>
-        <div>
-            <label htmlFor="">Sort by</label>
-            <select onChange={sortByPrice}>
+    <Box className={Styles.mainDiv}>
+      <Box>
+        <Box>
+            <Text as="h2">#{name}</Text>
+        </Box>
+        <Box>
+            <Text as="p">Sort by</Text>
+            <Select onChange={sortByPrice} w="60%" bg='rgb(59, 77, 62);'
+            borderColor='rgb(59, 77, 62);' size="md" fontWeight="bold"
+  color='white'>
                 <option value="featured">General</option>
                 <option value="HTL">High to Low</option>
                 <option value="LTH">Low to High</option>
-            </select>
-        </div>
-      </div>
-      <div>{sorting.map((elem) => <ProductCardPage key={elem._id} itemsData={elem} cat={cat} />)}</div>
-    </div>
+            </Select>
+        </Box>
+      </Box>
+      <Box>{sorting.map((elem) => <ProductCardPage key={elem._id} itemsData={elem} cat={cat} />)}</Box>
+    </Box>
   )
 }
