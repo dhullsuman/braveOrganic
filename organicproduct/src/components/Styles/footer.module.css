@@ -1,56 +1,81 @@
-.fullDiv{
-    width: 100%;
-    box-sizing: border-box;
+.fullDiv {
+  width: 100%;
+  box-sizing: border-box;
 }
-.mainFooter{
-    background-color: rgb(240, 246, 235);
-/* height: 400px; */
-width: 100%;
-display: flex;
-justify-content: space-evenly;
-padding: 60px 20px 0 20px;
-box-sizing: border-box;
-flex-wrap: wrap;
-/* align-items: center; */
+.mainFooter {
+  background-color: rgb(240, 246, 235);
+
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 40px 20px 0 20px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
-.mainFooter>div{
-    width: 280px;
-    height: auto;
+.mainFooter > div {
+  width: 280px;
+  height: auto;
+
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
 }
-.contact>div{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    gap: 10px;
+.mainFooter > div > h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
 }
-.contact>p:last-child{
-    margin-left: 35px;
+.mainFooter > div > p {
+  font-weight: 600;
 }
-.lastDiv{
-    background-color: rgb(59, 77, 62);
-width: 100%;
-height: auto;
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 0 45px 20px 45px;
-color: white;
-flex-wrap: wrap;
-box-sizing: border-box;
-gap: 20px;
+.contact > div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 10px;
 }
-.lastDiv>div{
-    width: 300px;
+.contact > p:last-child {
+  margin-left: 35px;
 }
-.lastDiv>div:nth-child(2){
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    font-size: 20px;
-    /* align-items: center; */
+.lastDiv {
+  background-color: rgb(59, 77, 62);
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 45px 20px 45px;
+  color: white;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  gap: 20px;
 }
-.lastDiv>div:nth-child(3){
-    /* width: 25%; */
-    font-size: 13px;
-    text-align: right;
+.lastDiv > div {
+  width: 300px;
+}
+.lastDiv > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 20px;
+}
+.lastDiv > div:nth-child(3) {
+  font-size: 13px;
+  text-align: right;
+}
+
+@media screen and (min-width: 500px) and (max-width: 770px) {
+  .lastDiv > div:last-child {
+    margin-left: auto;
+  }
+  .mainFooter > div > h4 {
+    text-align: center;
+  }
+  .lastDiv > div:first-child > img {
+    height: 20px;
+  }
+}
+@media screen and (min-width: 1px) and (max-width: 500px) {
+  .mainFooter > div > h4 {
+    text-align: center;
+  }
 }

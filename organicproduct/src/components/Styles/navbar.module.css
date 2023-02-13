@@ -1,28 +1,35 @@
-.img{
+.logo{
     width: 70px;
     height: 60px;
     background-color: white;
     border-radius: 5px;
 }
 .navTabs{
-    font-size: 18px;
+    font-size: 1.25rem;
     font-weight: 600;
+    padding: 0 10px; 
+  }
+  .pages>a{
     color: white;
-    /* box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px; */
-    padding: 0 10px;
-    /* border: 2px solid yellow; */
   }
 .navTabs:hover{
-    font-size: 20px;
+    font-size: 1.3rem;
+    background-color: white;color: teal;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+    border-radius: 1rem;
 }
+/* .pages>a:active{
+    color:yellow
+} */
 .searchbar{
     display:flex;
-    justify-content: space-between;
     align-items: center;
-    width: 40%;
-    
+    width: 45%;
+    color: white;
     box-sizing: border-box;
     margin: auto;
+    gap:0.5rem;
+    
 }
 .searchbar>div:first-child{
     display: flex;
@@ -31,7 +38,7 @@
     width: fit-content;
     background-color: white;
     border-radius: 5px;
-    height: 35px;
+    height: 40px;
     padding: 0 5px;
 }
 .searchbar>div:first-child>input{
@@ -42,9 +49,32 @@
     box-sizing: border-box;
     
 }
+.icons,.iconh{
+    font-size: 2rem;
+    color: white;
+    margin:auto
+}
 .searchbar>div:first-child>input:focus{
 outline: none;
 }
+.pages{
+    display: flex;
+    /* justify-content: space-between; */
+    gap: 1.25rem;
+    align-items: center;
+    min-width: 80vh;
+}
+.menuStyle{
+    display: flex;
+    font-size: 1.75rem;
+    color: white;
+    align-items: center;
+    min-width: 23vh;
+    gap: 1.25rem;
+}
+    @media only screen and (min-width:500px)and (max-width:900px){   .logo{
+        width: 100px;
+    }}
     @media only screen and (min-width:900px)and (max-width:1090px){
         .navTabs{
             font-size: 14px
@@ -52,12 +82,18 @@ outline: none;
         .navTabs:hover{
             font-size: 15px;
         }               
+     
     }
 
     @media only screen and (min-width:1px)and (max-width:500px){
 .searchbar{
-    width: 40%;
+    width: 60%;
     font-size: 10px;
+}
+.icons,.iconh{
+    font-size: 1.2rem;
+    color: white;
+    margin:auto
 }
 .searchbar>div:first-child{
     height: 20px;
@@ -66,5 +102,8 @@ outline: none;
 .searchbar>div:first-child>input{
     width: 70px;
     
+}
+.logo{
+    height: 40px;
 }
     }

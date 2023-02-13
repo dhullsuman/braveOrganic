@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { Drawer, IconButton, List, ListItemIcon } from "@mui/material";
-import { ListItemButton, ListItemText } from "@mui/material";
+import React, { useRef } from "react";
+// import { Drawer, IconButton, List, ListItemIcon } from "@mui/material";
+// import { ListItemButton, ListItemText } from "@mui/material";
 import { HiMenu } from "react-icons/hi";
 import Styles from "../Styles/navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
+import {  Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Image, List, ListIcon, ListItem, Text, useDisclosure } from "@chakra-ui/react";
+import { BsFillXDiamondFill } from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
 export default function DrawerComp() {
-  const [openDrawer, setopenDrawer] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const btnRef = useRef(null)
   const arr = [
     { title: "HOME", link: "/" },
     { title: "SHOP ALL", link: "/shopAll" },
@@ -13,30 +17,43 @@ export default function DrawerComp() {
     { title: " BEST SELLERS", link: "/bestsellers" },
     // { title: "ABOUT", link: "/about" },
   ];
+
   return (
     <React.Fragment>
-      <Drawer open={openDrawer} onClose={() => setopenDrawer(false)}>
-        <Link to={"/"}>
-      <img
+      {/* <Button > */}
+      <HiMenu onClick={onOpen} className={ Styles.iconh} />
+      {/* </Button> */}
+      <Drawer isOpen={isOpen}
+        placement='right'
+        onClose={onClose}
+        size="xs"
+        finalFocusRef={btnRef}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader >
+          <Link to={"/"}>
+      <Image
             className={Styles.img}
             src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Brave_220_x_220_480x.png?v=1653304701"
             alt="logo"
           />
-          </Link>
-        <List>
+          </Link></DrawerHeader>
+
+          <DrawerBody backgroundColor="rgb(59, 77, 62)" color="white">
+            <List>
           {arr.map((elem) => (
-            <NavLink to={elem.link}>
-            <ListItemButton onClick={()=>setopenDrawer(false)}>
-              <ListItemIcon>
-                <ListItemText><span style={{color:"rgb(59, 77, 62)", fontWeight:600, fontSize:"12px"}}>{elem.title }</span></ListItemText>
-              </ListItemIcon>
-            </ListItemButton></NavLink>
+            <NavLink to={elem.link} key={elem.link+elem.title}>
+              <ListItem fontSize="1.5rem" onClick={onClose}>
+              <ListIcon as={elem.title==="HOME" ? FaHome: BsFillXDiamondFill}/>
+                  <Text as="p" style={{ display:"inline",  fontWeight: 600,  }}>{elem.title}</Text>
+                </ListItem>
+            </NavLink>
           ))}
         </List>
+          </DrawerBody>
+        </DrawerContent>
       </Drawer>
-      <IconButton onClick={() => setopenDrawer(!openDrawer)} sx={{color:"white",marginLeft:"auto"}}>
-        <HiMenu />
-      </IconButton>
     </React.Fragment>
   );
 }

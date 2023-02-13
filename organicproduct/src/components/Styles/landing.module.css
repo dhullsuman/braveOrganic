@@ -78,18 +78,27 @@
     justify-content: space-between;
     gap: 10px;
 } */
+.mainDiv4,.mainDiv5,.mainDiv3,.mainDiv6{
+    margin: 2rem 0;
+}
 .mainDiv4>div:nth-child(1), .mainDiv5>div:nth-child(1), .mainDiv6>div:nth-child(1){
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
+    /* border: 1px solid red; */
     color: rgb(59, 77, 62);
+    margin: 1rem 0;
 }
 .mainDiv4>div:nth-child(1)>div,.mainDiv5>div:nth-child(1)>div, .mainDiv6>div:nth-child(1)>div{
     width: 5%;
     height: 0;
     border-bottom:1px solid rgb(59, 77, 62);
     /* font-size: 16px; */
+}
+.mainDiv4>div:first-child>h3:nth-child(2),.mainDiv3>div:first-child>h3:nth-child(2),.mainDiv5>div:first-child>h3:nth-child(2),.mainDiv6>div:first-child>h3:nth-child(2){
+font-size: 2rem;
+font-weight: 700;
 }
 .mainDiv4>div:nth-child(2)>div{
     width: 230px;
@@ -108,12 +117,11 @@
 }
 .mainDiv4>div:nth-child(2){
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     box-sizing: border-box;
     flex-wrap: wrap;
     gap: 10px;
 }
-
 .mainDiv5>div:nth-child(2)>div, .mainDiv6>div:nth-child(2)>div{
     height: 250px;
     border-radius: 5px;
@@ -216,6 +224,7 @@ height: 80%;
     align-items: center;
     box-sizing: border-box;
 }
+
 .mainDiv9>div:nth-child(1)>div:nth-child(1)>h1{
     /* margin-right: auto; */
     color: white;
@@ -242,6 +251,7 @@ transition: transform 0.2s ease;
     position: absolute;
     bottom:25%;
     margin-right: 17%;
+    display: flex;;
 }
 @media only screen and (max-width:900px) and (min-width:500px) {
     .mainDiv9{
@@ -269,6 +279,25 @@ transition: transform 0.2s ease;
     margin-right: 10%;
 
     }
+    .mainDiv4>div:nth-child(2),
+    .mainDiv5>div:nth-child(2),
+    .mainDiv6>div:nth-child(2)
+    {
+        justify-content:space-between;
+        gap: 3vh;
+    }
+    .mainDiv4>div:nth-child(2)>div,
+    .mainDiv5>div:nth-child(2)>div,
+    .mainDiv6>div:nth-child(2)>div
+    {
+        width: 35vh;
+    height: 35vh;
+
+    }
+.mainDiv5>div:nth-child(2)>div>div:nth-child(2){
+    font-size: 1.55rem;
+    font-weight: 800;
+}
     .mainDiv9>div:nth-child(1)>div:nth-child(2)>img{
         /* height:; */
         width: 100px;
@@ -295,8 +324,34 @@ transition: transform 0.2s ease;
     }
     .mainDiv9>div:nth-child(1){
     height: 100%;
-
     }
+    .mainDiv5>div:nth-child(2)>div>div:nth-child(2){
+        font-size: 1.25rem;
+        font-weight: 800;
+    }
+    .mainDiv4>div:first-child>h3:nth-child(2),
+    .mainDiv3>div:first-child>h3:nth-child(2),
+    .mainDiv5>div:first-child>h3:nth-child(2),
+    .mainDiv6>div:first-child>h3:nth-child(2)
+    {
+        font-size: 1.12rem;
+    }
+.mainDiv4>div:nth-child(2),
+.mainDiv6>div:nth-child(2),
+.mainDiv5>div:nth-child(2)
+{
+    justify-content:space-between;
+    gap: 3vh;
+}
+.mainDiv4>div:nth-child(2)>div,
+.mainDiv6>div:nth-child(2)>div,
+.mainDiv5>div:nth-child(2)>div
+{
+    margin: auto;
+    width: 40vh;
+    height: 40vh;
+}
+
     .mainDiv9>div:nth-child(1)>div:nth-child(1){
     padding-right: 7%;
     height: 60px;
@@ -306,7 +361,7 @@ transition: transform 0.2s ease;
         font-weight: 700;
     }
     .mainDiv9>div:nth-child(2){
-        height: 80%;
+        height: 70%;
         width: 30%;
         left: 5%;
     }

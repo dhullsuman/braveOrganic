@@ -1,4 +1,4 @@
-import { AppBar, Tab, Tabs, Toolbar } from "@material-ui/core";
+// import { AppBar, Tab, Tabs, Toolbar } from "@material-ui/core";
 import React, { useState } from "react";
 import Styles from "../Styles/navbar.module.css";
 import { VscSearch } from "react-icons/vsc";
@@ -7,17 +7,18 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { GrSearch } from "react-icons/gr";
 import {BsPersonSquare} from "react-icons/bs";
 import {IoMdLogOut} from "react-icons/io"
-import {
-  Badge,
-  IconButton,
-  MenuItem,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+// import {
+//   Badge,
+//   IconButton,
+//   MenuItem,
+//   useMediaQuery,
+//   useTheme,
+// } from "@mui/material";
 import DrawerComp from "./Drawer";
 import { Link, NavLink } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { handleLogOut } from "../../Redux/Register/action";
+import { Badge, Box, Button, IconButton, MenuItem, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useMediaQuery, useTheme } from "@chakra-ui/react";
 // import MailIcon from '@mui/icons-material/Mail';
 const arr = [
   { title: "HOME", link: "/" },
@@ -29,14 +30,16 @@ const arr = [
 export default function Navbar() {
   const dispatch = useDispatch();
   const {isLogin, isUser} = useSelector((a)=>{return {isLogin: a.userReducer.isLogin, isUser:a.userReducer.isUser}},shallowEqual)
-  const theme = useTheme();
-  const match = useMediaQuery(theme.breakpoints.down("md"));
-  const smallIcon = useMediaQuery(theme.breakpoints.down("sm"));
-  // const [user, setuser]=useState(true)
+  const [isSmallerThan880] = useMediaQuery('(max-width: 880px)')
+
+  const [isSmallerThan430] = useMediaQuery('(max-width:430px)');
 
   const activePage = {
-    textDecoration: "underline",
-    color: "yellow",
+    boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+    color: "rgb(59, 77, 62)",
+    backgroundColor: "white",
+    borderRadius:"1rem"
+    
   };
 
   const userLogOut = () => {
@@ -46,116 +49,69 @@ export default function Navbar() {
   // console.log(user)
   return (
     <React.Fragment>
-      <AppBar style={appStyles}>
-        <Toolbar>
+      <Box style={appStyles}>
+        <Box display="flex" w={"100%"} justifyContent={"space-between"} padding="0 1rem" alignContent={"center"} >
           <Link to={"/"}>
             <img
-              className={Styles.img}
+              className={Styles.logo}
               src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Brave_220_x_220_480x.png?v=1653304701"
               alt="logo"
             />
           </Link>
 
-          {match ? (
+          {isSmallerThan880 ? (
             <>
               <div className={Styles.searchbar}>
                 <div>
+                  
                   <GrSearch />
                   <input type="text" placeholder="Search..." />
                 </div>
-                <IconButton
-                  size={smallIcon ? "small" : "medium"}
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                >
-                  <Badge badgeContent={4} color="error">
-                    <BsHandbag />
-                  </Badge>
-                </IconButton>
+                <Link to={ "/cart"}>
+                <BsHandbag className={Styles.icons} /></Link>
                 <Link to={"/WhiteList"}>
-                <IconButton
-                  size={smallIcon ? "small" : "medium"}
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                >
-                  <Badge badgeContent={4} color="error">
-                    <AiOutlineHeart />
-                  </Badge>
-                </IconButton></Link>
+              < AiOutlineHeart className={Styles.icons}/>
+                </Link>
               </div>
+              <Box display={"flex"} alignContent="center" >
               <DrawerComp />
+              </Box>
             </>
           ) : (
-            <>
-              <Tabs style={tabsStlyes} textColor="white">
-                {arr.map((elem) => (
-                  <NavLink
+              <>
+                <Box className={Styles.pages}   >
+                  {arr.map((elem)=><NavLink
                     to={elem.link}
+                    key={elem.link+elem.titel}
                     style={({ isActive }) => {
                       return isActive ? activePage : undefined;
                     }}
                   >
-                    <Tab style={{minWidth:"50px"}}
-                      label={
-                        <span className={Styles.navTabs}>{elem.title}</span>
-                      }
-                    />
-                  </NavLink>
-                ))}
-              </Tabs>
+  <Text as="p" style={{minWidth:"50px"}} className={Styles.navTabs}> {elem.title}</Text>
 
-              <MenuItem style={menuStyle}>
+                  </NavLink>)}
+</Box>
+              <Box className={Styles.menuStyle}>
               
-                <IconButton
-                  size="medium"
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                >
-                  <VscSearch />
-                </IconButton>
+                <VscSearch/>
                 <Link to={"/Card"}>
-                <IconButton
-                  size="medium"
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                >
-                  <Badge badgeContent={4} color="error">
-                    <BsHandbag />
-                  </Badge>
-                </IconButton></Link>
+                <BsHandbag/>
+                  </Link>
                 <Link to={"/WhiteList"}>
-                <IconButton
-                  size="medium"
-                  aria-label="show 4 new mails"
-                  color="inherit"
-                >
-                  <Badge badgeContent={4} color="error">
-                    <AiOutlineHeart />
-                  </Badge>
-                    </IconButton></Link>
-                {!isLogin ?
-                <Link to={"/login"}> 
-                <IconButton
-                  size="medium"
-                  aria-label="show 4 new mails"
-                        color="inherit"
-                        // onClick={() => setuser(true)}
-                >
-                <BsPersonSquare/></IconButton></Link>:
-                <IconButton
-                  size="medium"
-                  aria-label="show 4 new mails"
-                      color="inherit"
-                      onClick={userLogOut}
-                >
-                        <IoMdLogOut />
-                        {isLogin && <p>{isUser.firstName+" "+isUser.lastName}</p> }
-                      </IconButton>}
-              </MenuItem>
+                <AiOutlineHeart/>
+                  </Link>
+                  {!isLogin ? 
+                    <Link to={"/login"}>
+                    <BsPersonSquare/>
+                    </Link>
+                    : <>
+                    <Text as="p">Suman Dhul</Text>
+                    <IoMdLogOut onClick={userLogOut} /></>}
+                    </Box>
             </>
           )}
-        </Toolbar>
-      </AppBar>
+        </Box>
+      </Box>
     </React.Fragment>
   );
 }
@@ -164,7 +120,7 @@ const appStyles = {
   background: "rgb(59, 77, 62)",
   padding: "5px",
   position: "sticky",
+  display: "flex",
+  alignContent: "center",
+  // border:"5px solid yellow"
 };
-const tabsStlyes = { marginLeft: "10px" };
-// const tab1Stlyes = { marginLeft: "auto", boxSizing: "borderBox" };
-const menuStyle={marginLeft:"auto"}

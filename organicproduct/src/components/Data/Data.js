@@ -654,33 +654,51 @@ export const arrivalData = [
 
   export const spotlight=[
     {
+      id:5,
       title:"Best Sellers",
       img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Skin_Care_V1_Medium_480x_09916d9f-fa9c-4a77-bfd3-481d87f0026f_480x.jpg?v=1668751543"
     },
     {
+      id:1,
       title:"Shop All",
       img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Hair_Care_V1.1_Medium_480x_ed1ab255-51c6-468b-86b3-30e37348113d_480x.jpg?v=1668751634"
     },
     {
+      id:2,
       title:"New Arrival",
       img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Body_Care_V2_Medium_480x_12ed3d42-d313-4f2e-ad0f-4b3152aa5b9d_480x.jpg?v=1668751616"
     },
     {
+      id:3,
       title:"Summer Essential",
       img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Summer_Essentials_V1_Medium_480x_b1fae592-7dc5-46e3-872f-8702236907cf_480x.jpg?v=1668751664"
     },
     {
+      id:4,
       title:"Sensitive Skin",
       img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Sensitive_Skin_V1_Medium_480x_2a4eee81-456d-4a54-ba83-0d39f6976288_480x.jpg?v=1668751683"
     }
   ]
   
   // Solution Data
-  export const solution=[{
+export const solution = [{
+  id:1,
   img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Tan_Removal_Medium_1_480x_582f8a80-0916-47e7-ab8a-394206c29927_900x.jpg?v=1668753363"
   },
-  {img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dry___Dull_Lips_Medium_480x_53454fe1-806f-4a40-9ae6-fe9eef93071d_900x.jpg?v=1668753515"},
-  {img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dark_Circles_Medium_1_480x_61dec845-22cf-4aed-824d-8a6d771fda32_900x.jpg?v=1668753529"},
-  {img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Pimples-Acne_Medium_480x_00cbb911-202f-4cb2-a0f7-f9ec92e6a800_900x.jpg?v=1668753551"},
-  {img:"https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Hair-Loss-_-Thinning-V1_Medium_480x_24df57b9-a9de-4f14-9fcb-b83d43b89e74_480x.jpg?v=1668753568"}
+  {
+    id:2,
+    img: "https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dry___Dull_Lips_Medium_480x_53454fe1-806f-4a40-9ae6-fe9eef93071d_900x.jpg?v=1668753515"
+  },
+  {
+    id:3,
+    img: "https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Dark_Circles_Medium_1_480x_61dec845-22cf-4aed-824d-8a6d771fda32_900x.jpg?v=1668753529"
+  },
+  {
+    id:4,
+    img: "https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Pimples-Acne_Medium_480x_00cbb911-202f-4cb2-a0f7-f9ec92e6a800_900x.jpg?v=1668753551"
+  },
+  {
+    id:5,
+    img: "https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Hair-Loss-_-Thinning-V1_Medium_480x_24df57b9-a9de-4f14-9fcb-b83d43b89e74_480x.jpg?v=1668753568"
+  }
   ]
