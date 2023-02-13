@@ -1,6 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import Style from "../Styles/login.module.css"
+import {useDispatch} from "react-redux"
+import { handleRegisterFailure, handleRegisterRequest, handleRegisterSuccessfull } from '../../Redux/Register/action'
+import { useNavigate } from 'react-router-dom'
 
 const initialState = {
   firstName: "",
@@ -10,17 +13,37 @@ const initialState = {
 }
 
 export default function CreateAccount() {
+  const dispatch = useDispatch()
   const [userData, setUserData] = useState(initialState);
+  const navigate = useNavigate();
+
   // console.log(userData)
   const handleUserInput = (a) => {
     const { name, value } = a.target;
     setUserData({ ...userData, [name]:value})
     // console.log(name, value)
   }
-  const submitUserData = (event) => {
+  const submitUserData = async(event) => {
     event.preventDefault();
-    console.log(userData)
+    // console.log(userData)
+    dispatch(handleRegisterRequest());
+    try {
+      const user = await fetch("http://localhost:8080/user/register", { method: "POST", body: JSON.stringify(userData), headers: { "Content-Type": "application/json" } })
+      const user1 = await user.json()
+      dispatch(handleRegisterSuccessfull(user1.message))
+      if (user1.message === "IsPresent") {
+        alert("Already registered, please login")
+      } else {
+        alert("Register successful")
+        navigate("/login")
+      }
+      // console.log(user1)
+    } catch (err) {
+      dispatch(handleRegisterFailure());
+}
   }
+
+
   return (
     <div>
       <div className={Style.mainDiv}>

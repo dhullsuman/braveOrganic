@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { handleLoginFailure, handleLoginRequest, handleLoginSuccessfull } from '../../Redux/Register/action'
 import Style from "../Styles/login.module.css"
 
 const initialState = {
@@ -8,15 +10,53 @@ const initialState = {
 }
 
 export default function Login() {
+  const {state}=useLocation()
+  const isLogin = useSelector((e)=>e.userReducer.isLogin)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [userData, setUserData] = useState(initialState)
   const handleLoginData = (e) => {
     const { name, value } = e.target
     setUserData({...userData, [name]: value})
   }
-  const submitLoginData = (e) => {
+  const submitLoginData = async (e) => {
     e.preventDefault()
-    console.log(userData)
+    dispatch(handleLoginRequest())
+    try {
+      const allUser = await fetch("http://localhost:8080/user/login", { method: 'POST', body: JSON.stringify(userData), headers: { 'Content-Type': 'application/json' } })
+      const result= await allUser.json()
+      if (result.isLogin) {
+        // console.log(result)
+        dispatch(handleLoginSuccessfull(result))
+        alert("Login successful")
+        localStorage.setItem("user", JSON.stringify(result))
+        // navigate("/")
+      } else {
+        if (result.message === "wrongPassword") {
+          alert("Please enter a valid password")
+        } else if(result.message === "notRegistered") {
+          alert("Not Registered, Please create a new account")
+        }
+      }
+      // console.log(result)
+    } catch (err) {
+      dispatch(handleLoginFailure())
+    }
+    // console.log(userData)
   }
+  // console.log(state)
+  useEffect(() => {
+    if (isLogin) {
+      if (state === null) {
+        navigate("/")
+      } else {
+        navigate(state.from,{replace:true})
+      }
+    }
+  },[isLogin])
+//   if (isLogin) {
+//   return <Navigate to={state.from}/>
+// }
 
   return (
     <div className={Style.mainDiv}>

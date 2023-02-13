@@ -16,6 +16,8 @@ import {
 } from "@mui/material";
 import DrawerComp from "./Drawer";
 import { Link, NavLink } from "react-router-dom";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
+import { handleLogOut } from "../../Redux/Register/action";
 // import MailIcon from '@mui/icons-material/Mail';
 const arr = [
   { title: "HOME", link: "/" },
@@ -25,16 +27,23 @@ const arr = [
   // { title: "ABOUT", link: "/about" },
 ];
 export default function Navbar() {
+  const dispatch = useDispatch();
+  const {isLogin, isUser} = useSelector((a)=>{return {isLogin: a.userReducer.isLogin, isUser:a.userReducer.isUser}},shallowEqual)
   const theme = useTheme();
   const match = useMediaQuery(theme.breakpoints.down("md"));
   const smallIcon = useMediaQuery(theme.breakpoints.down("sm"));
-  const [user, setuser]=useState(true)
+  // const [user, setuser]=useState(true)
 
   const activePage = {
     textDecoration: "underline",
     color: "yellow",
   };
 
+  const userLogOut = () => {
+    localStorage.clear();
+    dispatch(handleLogOut())
+  }
+  // console.log(user)
   return (
     <React.Fragment>
       <AppBar style={appStyles}>
@@ -123,21 +132,25 @@ export default function Navbar() {
                   <Badge badgeContent={4} color="error">
                     <AiOutlineHeart />
                   </Badge>
-                </IconButton></Link>
-                {!user ?
+                    </IconButton></Link>
+                {!isLogin ?
                 <Link to={"/login"}> 
                 <IconButton
                   size="medium"
                   aria-label="show 4 new mails"
-                  color="inherit" onClick={()=>setuser(true)}
+                        color="inherit"
+                        // onClick={() => setuser(true)}
                 >
                 <BsPersonSquare/></IconButton></Link>:
                 <IconButton
                   size="medium"
                   aria-label="show 4 new mails"
-                  color="inherit" onClick={()=>setuser(false)}
+                      color="inherit"
+                      onClick={userLogOut}
                 >
-                <IoMdLogOut/></IconButton>}
+                        <IoMdLogOut />
+                        {isLogin && <p>{isUser.firstName+" "+isUser.lastName}</p> }
+                      </IconButton>}
               </MenuItem>
             </>
           )}
