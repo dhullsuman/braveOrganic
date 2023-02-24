@@ -1,17 +1,17 @@
 const express = require('express');
 const { UserModel } = require('../model/user.model');
 
-const cartRoute = express.Router();
+const orderRoute = express.Router();
 
-cartRoute.post("/add/:id", async (req, res) => {
+orderRoute.post("/add/:id", async (req, res) => {
     const data = req.body;
     let userID = req.params.id
     try {
         const user = await UserModel.findById({ _id: userID });
         if (user._id==userID) {
-            const cart = user.cartItem;
-            cart.push(data);
-            await UserModel.findByIdAndUpdate({ _id: userID }, { cartItem: cart });
+            const order = user.orderItem;
+            order.push(data);
+            await UserModel.findByIdAndUpdate({ _id: userID }, { orderItem: order });
             res.send({msg:"Added Successfuly"})
         } else {
             res.send({ msg: "User Not Found" });
@@ -22,15 +22,15 @@ cartRoute.post("/add/:id", async (req, res) => {
     }
 })
 
-cartRoute.delete("/delete/:id", async (req, res) => {
+orderRoute.delete("/delete/:id", async (req, res) => {
     const productid = req.body._id;
     const userId = req.params.id;
     try {
         const user = await UserModel.findById({ _id: userId });
         if (user._id==userId) { 
-            const cart = user.cartItem;
-            const newcart = cart.filter((el) => el._id != productid);
-            await UserModel.findByIdAndUpdate({ _id: userId }, { cartItem: newcart });
+            const order = user.orderItem;
+            const neworder = order.filter((el) => el._id != productid);
+            await UserModel.findByIdAndUpdate({ _id: userId }, { orderItem: neworder });
             res.send({msg:"Deleted Successfuly"})
         } else {
             res.send({ msg: "User Not Found" });
@@ -42,4 +42,4 @@ cartRoute.delete("/delete/:id", async (req, res) => {
 })
 
 
-module.exports = cartRoute;
+module.exports = orderRoute;
