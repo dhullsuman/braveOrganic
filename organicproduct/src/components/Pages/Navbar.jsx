@@ -47,7 +47,7 @@ if(isUser!==null)  {  LoginUser(dispatch, isUser._id);}
           <Link to={"/"}>
             <Image
               className={Styles.logo}
-              src="./logo.png"
+              src="./logo.PNG"
               alt="logo"
             />
           </Link>
