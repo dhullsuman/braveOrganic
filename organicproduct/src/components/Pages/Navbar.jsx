@@ -47,7 +47,7 @@ if(isUser!==null)  {  LoginUser(dispatch, isUser._id);}
           <Link to={"/"}>
             <Image
               className={Styles.logo}
-              src="./logo.PNG"
+              src="https://drive.google.com/uc?id=1pm3Yyl6Ae0TaK79xKtVkIMiHF8mFbEqr"
               alt="logo"
             />
           </Link>
