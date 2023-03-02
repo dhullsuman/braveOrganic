@@ -1,5 +1,5 @@
 import { Box, Select, Text } from '@chakra-ui/react';
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import Styles from "../Styles/product.module.css"
 import ProductCardPage from './ProductCardPage'
@@ -7,7 +7,6 @@ import ProductCardPage from './ProductCardPage'
 export default function Product({ name, data, cat }) {
   const [sorting, setsorting] = useState([...data])
   const [istrue, setisture] = useState(0)
-  console.log(data)
   function sortByPrice(event) {
    
     if (event.target.value === "LTH") {
@@ -36,17 +35,16 @@ export default function Product({ name, data, cat }) {
   return (
     <Box className={Styles.mainDiv}>
       <Box>
-        <Box>
+        <Box >
             <Text as="h2">#{name}</Text>
         </Box>
         <Box>
             <Text as="p">Sort by</Text>
-            <Select onChange={sortByPrice} w="60%" bg='rgb(59, 77, 62);'
-            borderColor='rgb(59, 77, 62);' size="md" fontWeight="bold"
-  color='white'>
-                <option value="featured">General</option>
-                <option value="HTL">High to Low</option>
-                <option value="LTH">Low to High</option>
+            <Select onChange={sortByPrice} w={{lg:"40%",md:"50%"}} bg='rgb(59, 77, 62)'
+            borderColor='rgb(59, 77, 62)' size="sm" fontWeight="bold" appearance= "none" color="white" borderRadius={3}>
+                <option value="featured" style={{ color: 'white',backgroundColor:"rgb(59,77,62)", borderRadius:0}}>General</option>
+                <option value="HTL" style={{ color: 'white',backgroundColor:"rgb(59,77,62)",borderRadius:0}}>High to Low</option>
+                <option value="LTH" style={{ color: 'white',backgroundColor:"rgb(59,77,62)",borderRadius:0}}>Low to High</option>
             </Select>
         </Box>
       </Box>

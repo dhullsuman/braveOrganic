@@ -1,0 +1,24 @@
+.main {
+  width: 60%;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  border-radius: 10px;
+  /* margin: auto; */
+  margin-top: 3vh;
+  padding: 2vh;
+}
+.main > div:nth-child(1) {
+  gap: 5px;
+}
+.main > div:nth-child(1) > p:nth-child(2) {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.main > div:nth-child(2) {
+  padding-left: 7vh;
+}
+.btn {
+  margin: 3vh;
+  background-color: rgb(59, 77, 62);
+  color: white;
+}

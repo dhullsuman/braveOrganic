@@ -43,3 +43,5 @@ const wishlistSchema = mongoose.Schema({
 const WishlistModel = mongoose.model("wishlist", wishlistSchema);
 
 module.exports = WishlistModel;
+
+

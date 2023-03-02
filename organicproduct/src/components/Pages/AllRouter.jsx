@@ -3,6 +3,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import UserRequireAuth from "../../Routes/userRequireAuth";
 import Bestsellers from "./Bestsellers";
+import Cart from "./Cart";
 import CreateAccount from "./CreateAccount";
 import Landing from "./Landing";
 import Login from "./Login";
@@ -21,7 +22,22 @@ export default function AllRouter() {
         <Route path={"/shopall"} element={<ShopAll />} />
         <Route path={"/login"} element={<Login />} />
         <Route path={"/signup"} element={<CreateAccount />} />
-        <Route path={"/whitelist"} element={<UserRequireAuth><WhiteList /></UserRequireAuth>} />
+        <Route
+          path={"/cart"}
+          element={
+            <UserRequireAuth>
+              <Cart />
+            </UserRequireAuth>
+          }
+        />
+        <Route
+          path={"/wishlist"}
+          element={
+            <UserRequireAuth>
+              <WhiteList />
+            </UserRequireAuth>
+          }
+        />
       </Routes>
     </Box>
   );

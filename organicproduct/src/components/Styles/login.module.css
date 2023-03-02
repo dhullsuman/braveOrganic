@@ -3,12 +3,13 @@
     margin: auto;
     /* border: 2px solid; */
     box-sizing: border-box;
-    padding: 0 20px;
+    padding: 10px 20px;
     margin-bottom: 100px;
+    margin-top: 2vh;
+    border-radius: 2vh;
+   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 .mainDiv>div:first-child{
-    /* display: flex; */
-    /* justify-content: center; */
     text-align: center;
 
 }
@@ -17,8 +18,9 @@
     font-weight: 600;
 }
 .mainDiv>div:first-child>p{
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     color: rgb(59, 77, 62);
+    margin-bottom: 2vh;
 }
 .mainDiv>.form{
     display: flex;flex-direction: column;gap:2rem;
@@ -43,7 +45,7 @@
     color: white;
     font-size: 20px;
     font-weight: 500;
-    padding: 10px 50px;
+    padding: 7px 50px 10px 50px;
     /* height: 45px; */
     border-radius: 10px;
     border: none;

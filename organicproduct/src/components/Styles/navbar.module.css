@@ -1,109 +1,130 @@
-.logo{
-    width: 70px;
-    height: 60px;
-    background-color: white;
-    border-radius: 5px;
+.logo {
+  width: 70px;
+  height: 60px;
+  background-color: white;
+  border-radius: 5px;
 }
-.navTabs{
-    font-size: 1.25rem;
-    font-weight: 600;
-    padding: 0 10px; 
-  }
-  .pages>a{
-    color: white;
-  }
-.navTabs:hover{
-    font-size: 1.3rem;
-    background-color: white;color: teal;
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
-    border-radius: 1rem;
+.navTabs {
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 0 10px;
+}
+.pages > a {
+  color: white;
+}
+.navTabs:hover {
+  font-size: 1.3rem;
+  background-color: white;
+  color: rgb(59, 77, 62);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  border-radius: 1rem;
 }
 /* .pages>a:active{
     color:yellow
 } */
-.searchbar{
-    display:flex;
-    align-items: center;
-    width: 45%;
-    color: white;
-    box-sizing: border-box;
-    margin: auto;
-    gap:0.5rem;
-    
+.searchbar {
+  display: flex;
+  align-items: center;
+  width: 45%;
+  color: white;
+  box-sizing: border-box;
+  margin: auto;
+  gap: 0.5rem;
 }
-.searchbar>div:first-child{
-    display: flex;
-    /* width: 40%; */
-    align-items: center;
-    width: fit-content;
-    background-color: white;
-    border-radius: 5px;
-    height: 40px;
-    padding: 0 5px;
+.searchbar > div:first-child {
+  display: flex;
+  /* width: 40%; */
+  align-items: center;
+  width: fit-content;
+  background-color: white;
+  border-radius: 5px;
+  height: 40px;
+  padding: 0 5px;
 }
-.searchbar>div:first-child>input{
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border:none;
-    height: 85%;
-    box-sizing: border-box;
-    
+.searchbar > div:first-child > input {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: none;
+  height: 85%;
+  box-sizing: border-box;
 }
-.icons,.iconh{
-    font-size: 2rem;
-    color: white;
-    margin:auto
+.icons,
+.iconh {
+  font-size: 2rem;
+  color: white;
+  margin: auto;
 }
-.searchbar>div:first-child>input:focus{
-outline: none;
+.sup1,.sup{
+  font-size: 2rem;
+  position: relative;
 }
-.pages{
-    display: flex;
-    /* justify-content: space-between; */
-    gap: 1.25rem;
-    align-items: center;
-    min-width: 80vh;
+.sup>p{
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  position: absolute;
+  top:-0.7rem;right: -0.4rem;
 }
-.menuStyle{
-    display: flex;
-    font-size: 1.75rem;
-    color: white;
-    align-items: center;
-    min-width: 23vh;
-    gap: 1.25rem;
+.sup1>p{
+  font-size: 1rem;
+  color: white;
+  font-weight: 600;
+  position: absolute;
+  top:-0.7rem;right: -0.3rem;
 }
-    @media only screen and (min-width:500px)and (max-width:900px){   .logo{
-        width: 100px;
-    }}
-    @media only screen and (min-width:900px)and (max-width:1090px){
-        .navTabs{
-            font-size: 14px
-        }
-        .navTabs:hover{
-            font-size: 15px;
-        }               
-     
-    }
+.searchbar > div:first-child > input:focus {
+  outline: none;
+}
+.pages {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 1.25rem;
+  align-items: center;
+  min-width: 80vh;
+}
+.menuStyle {
+  display: flex;
+  font-size: 1.75rem;
+  color: white;
+  align-items: center;
+  min-width: 23vh;
+  gap: 1.25rem;
+}
 
-    @media only screen and (min-width:1px)and (max-width:500px){
-.searchbar{
+@media only screen and (min-width: 500px) and (max-width: 900px) {
+  .logo {
+    width: 100px;
+  }
+}
+@media only screen and (min-width: 900px) and (max-width: 1090px) {
+  .navTabs {
+    font-size: 14px;
+  }
+  .navTabs:hover {
+    font-size: 15px;
+  }
+}
+
+@media only screen and (min-width: 1px) and (max-width: 500px) {
+  .searchbar {
     width: 60%;
     font-size: 10px;
-}
-.icons,.iconh{
+  }
+  .icons,
+  .iconh {
     font-size: 1.2rem;
     color: white;
-    margin:auto
-}
-.searchbar>div:first-child{
+    margin: auto;
+  }
+  .searchbar > div:first-child {
     height: 20px;
     font-size: 10px;
-}
-.searchbar>div:first-child>input{
+  }
+  .searchbar > div:first-child > input {
     width: 70px;
-    
-}
-.logo{
+    font-size: 0.52rem;
+  }
+  .logo {
     height: 40px;
+  }
 }
-    }

@@ -35,7 +35,7 @@
     color: white;
     border: none;
     /* padding: 10px 0; */
-    /* border-radius: 5px; */
+    /* border-radius: 0; */
     /* position: absolute; */
     /* bottom: 0;left: 0; */
     margin-top: auto;
@@ -180,51 +180,47 @@ font-size: 14px;
 }
 .main1>div:nth-child(4){
     display: flex;
-    align-items: center;
+    /* align-items: center; */
+    /* justify-content:space-between; */
     border-radius: 5px;
     margin-bottom: 20px;
     border: 2px solid black;
     width: fit-content;
 
 }
+.main1>div:nth-child(4)>button{
+    display: flex;align-items: center;justify-content: center;
+    /* border: 2px solid red; */
+    box-sizing: border-box;
+    border-radius: 0;
+    height: 40px;width: 40px;
+}
 .main1>div:nth-child(4)>button:nth-child(2){
     background-color: rgb(59, 77, 62);
     color: white;
-    /* padding: 10px 15px; */
-    border-radius: none;
+    border-radius: 0;
     font-size: 18px;
-    /* border: none; */
-    /* border-left: none; */
-    /* border-right: none; */
     box-sizing: border-box;
-    /* border: 2px solid red; */
-    font-weight: 600;
+    /* font-weight: 600; */
     
 }
 .main1>div:nth-child(4)>button:nth-child(1){
     background-color: white;
-    font-size: 18px;
+    font-size: 1.25rem;
     color: rgb(59, 77, 62);
-    /* padding: 10px 15px; */
-    border: none;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     box-sizing: border-box;
-    font-weight: 600;
-
+    font-weight: 800;
 }
 .main1>div:nth-child(4)>button:nth-child(3){
+    font-size: 1.25rem;
     background-color: white;
     color: rgb(59, 77, 62);
-    font-size: 18px;
     box-sizing: border-box;
-    /* padding: 10px 15px; */
-    /* border-radius: 5px; */
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    font-weight: 600;
-    border: none;
-
+    font-weight: 800;
 }
 
 /*@media only screen and (min-width:900px) and (max-width:1191px) {

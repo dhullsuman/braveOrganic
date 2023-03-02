@@ -1,4 +1,4 @@
-import { LoginFailure, LoginMsg, LoginRequest, LoginSuccessfull, LogOut, RegisterFailure, RegisterRequest, RegisterSuccessfull } from "./actionType";
+import { LoginAgain, LoginFailure, LoginRequest, LoginSuccessfull, LogOut, RegisterFailure, RegisterRequest, RegisterSuccessfull } from "./actionType";
 
 export const handleRegisterSuccessfull=(a)=> {
     return {type:RegisterSuccessfull, payload:a}
@@ -14,6 +14,9 @@ export const handleRegisterFailure = () => {
 
 export const handleLoginSuccessfull = (a) => {
     return {type:LoginSuccessfull, payload:a}
+}
+export const handleLoginAgain = (a) => {
+    return {type:LoginAgain, payload:a}
 }
 
 export const handleLoginFailure = () => {

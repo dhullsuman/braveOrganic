@@ -1,10 +1,8 @@
 import React, { useRef } from "react";
-// import { Drawer, IconButton, List, ListItemIcon } from "@mui/material";
-// import { ListItemButton, ListItemText } from "@mui/material";
 import { HiMenu } from "react-icons/hi";
 import Styles from "../Styles/navbar.module.css";
 import { Link, NavLink } from "react-router-dom";
-import {  Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Image, List, ListIcon, ListItem, Text, useDisclosure } from "@chakra-ui/react";
+import {  Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Image, List, ListIcon, ListItem, Text, useDisclosure } from "@chakra-ui/react";
 import { BsFillXDiamondFill } from "react-icons/bs";
 import { FaHome } from "react-icons/fa";
 export default function DrawerComp() {
@@ -12,17 +10,15 @@ export default function DrawerComp() {
   const btnRef = useRef(null)
   const arr = [
     { title: "HOME", link: "/" },
-    { title: "SHOP ALL", link: "/shopAll" },
-    { title: "NEW ARRIVALS", link: "/newArrival" },
+    { title: "SHOP ALL", link: "/shopall" },
+    { title: "NEW ARRIVALS", link: "/newarrival" },
     { title: " BEST SELLERS", link: "/bestsellers" },
     // { title: "ABOUT", link: "/about" },
   ];
 
   return (
     <React.Fragment>
-      {/* <Button > */}
       <HiMenu onClick={onOpen} className={ Styles.iconh} />
-      {/* </Button> */}
       <Drawer isOpen={isOpen}
         placement='right'
         onClose={onClose}

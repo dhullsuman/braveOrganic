@@ -1,0 +1,80 @@
+.main1 {
+  width: 100%;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.main {
+  padding: 0.5rem 1rem;
+  width: 90%;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  height: fit-content;
+}
+.main1 > h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.main1 > a,
+.main3 > a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: rgb(59, 77, 62);
+}
+.main2 {
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.bbt:hover{
+  background-color: rgb(59, 77, 62);
+}
+
+@media screen and (min-width: 500px) and (max-width: 900px) {
+  .main{
+    margin: auto;
+  padding: 0;
+  }
+  .main1>h4{
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .main1>a{
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .main2{
+    padding: 1rem 0.5rem;
+  }
+  .main2{
+    
+  }
+  .main3{
+    padding: 0 1rem;
+  }
+}
+@media screen and (min-width: 0) and (max-width: 500px) {
+  .main{
+    width: 100%;
+  padding: 0;
+  margin: auto;
+  }
+  .main1{
+    width: 100%;
+  }
+  .main1>h4{
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .main1>a{
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+  .main2{
+    padding: 1rem 0.5rem;
+  }
+  .main3{
+    padding: 0 1rem;
+  }
+}

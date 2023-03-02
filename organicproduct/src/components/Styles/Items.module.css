@@ -11,6 +11,7 @@
     flex-wrap: wrap;
   position: relative;
     align-self: normal;
+    /* z-index: -1; */
 
 }
 #main{

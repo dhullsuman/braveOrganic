@@ -1,7 +1,7 @@
 import { Box, Button, FormControl, Input, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { handleLoginFailure, handleLoginRequest, handleLoginSuccessfull } from '../../Redux/Register/action'
 import Style from "../Styles/login.module.css"
 
@@ -27,11 +27,11 @@ export default function Login() {
       const allUser = await fetch("http://localhost:8080/user/login", { method: 'POST', body: JSON.stringify(userData), headers: { 'Content-Type': 'application/json' } })
       const result= await allUser.json()
       if (result.isLogin) {
-        // console.log(result)
         dispatch(handleLoginSuccessfull(result))
         alert("Login successful")
-        localStorage.setItem("user", JSON.stringify(result))
-        // navigate("/")
+        localStorage.setItem("user", JSON.stringify(result.user));
+        localStorage.setItem("token", JSON.stringify(result.Token));
+        localStorage.setItem("isLogin", result.isLogin);
       } else {
         if (result.message === "wrongPassword") {
           alert("Please enter a valid password")
@@ -39,13 +39,10 @@ export default function Login() {
           alert("Not Registered, Please create a new account")
         }
       }
-      // console.log(result)
     } catch (err) {
       dispatch(handleLoginFailure())
     }
-    // console.log(userData)
   }
-  // console.log(state)
   useEffect(() => {
     if (isLogin) {
       if (state === null) {
@@ -55,9 +52,6 @@ export default function Login() {
       }
     }
   },[isLogin])
-//   if (isLogin) {
-//   return <Navigate to={state.from}/>
-// }
 
   return (
     <Box className={Style.mainDiv}>
@@ -70,7 +64,7 @@ export default function Login() {
       <Input type="email" placeholder='Email' onChange={(e)=>handleLoginData(e)} name="email" value={userData.email} /></FormControl>
         <FormControl isRequired>
         <Input type="password" placeholder='Password' name="password" value={userData.password}  onChange={(e)=>handleLoginData(e)} /></FormControl>
-      <a href="#">Forgot your password?</a>
+      <Link href="#">Forgot your password?</Link>
       <Button onClick={submitLoginData} id={userData.email && userData.password ? "" : Style.createBtn}>Sign in</Button>
       </Box><br/>
       <Link to={"/signup"}>create account</Link>

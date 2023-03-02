@@ -92,7 +92,7 @@ export default function Landing() {
             <Box></Box>
           </Box>
           <Box>
-            <Swiper className={Styles.swiper}
+            <Swiper className={Styles.swiper} id="swiper"
 
               centeredSlides={false}
               slidesPerGroupSkip={10}
@@ -127,7 +127,7 @@ export default function Landing() {
         }}
         modules={[Keyboard, Pagination]}>
               {landingProduct?.map((elem) => (
-                <SwiperSlide key={elem._id}>
+                <SwiperSlide key={elem._id} className={Styles.swipers}>
                   <ProductCardPage itemsData={elem} cat="home"  />
                 </SwiperSlide>
               ))}

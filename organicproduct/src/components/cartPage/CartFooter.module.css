@@ -1,0 +1,7 @@
+.footer {
+  padding-left: 10%;
+  height: 80px;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}

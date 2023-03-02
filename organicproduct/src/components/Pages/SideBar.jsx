@@ -19,10 +19,10 @@ export default function SideBar() {
       <Text as="h4">CATEGORIES</Text>
       <hr />
       <Box>
-        <NavLink to={"/shopAll"} style={({isActive}) => {
+        <NavLink to={"/shopall"} style={({isActive}) => {
                       return isActive ? activePage : undefined;
                     }}>Shop All</NavLink>
-          <NavLink to={"/newArrival"} style={({isActive}) => {
+          <NavLink to={"/newarrival"} style={({isActive}) => {
                         return isActive ? activePage : undefined;
                       }}>New Arrival</NavLink>
         <NavLink to={"/bestsellers"} style={({isActive}) => {

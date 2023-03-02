@@ -3,6 +3,7 @@ const { UserModel } = require('../model/user.model');
 
 const wishlistRoute = express.Router();
 
+//for add wishlist product (http://localhost:8080/wishlist/add/:id)
 wishlistRoute.post("/add/:id", async (req, res) => {
     const data = req.body;
     let userID = req.params.id
@@ -22,7 +23,9 @@ wishlistRoute.post("/add/:id", async (req, res) => {
     }
 })
 
-wishlistRoute.delete("/delete/:id", async (req, res) => {
+
+//for delete wishlist product (http://localhost:8080/wishlist/delete/:id)
+wishlistRoute.post("/delete/:id", async (req, res) => {
     const productid = req.body._id;
     const userId = req.params.id;
     try {

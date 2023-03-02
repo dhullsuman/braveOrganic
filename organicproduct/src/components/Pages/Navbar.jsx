@@ -1,25 +1,17 @@
-// import { AppBar, Tab, Tabs, Toolbar } from "@material-ui/core";
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Styles from "../Styles/navbar.module.css";
 import { VscSearch } from "react-icons/vsc";
-import { BsHandbag } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import { GrSearch } from "react-icons/gr";
 import {BsPersonSquare} from "react-icons/bs";
 import {IoMdLogOut} from "react-icons/io"
-// import {
-//   Badge,
-//   IconButton,
-//   MenuItem,
-//   useMediaQuery,
-//   useTheme,
-// } from "@mui/material";
 import DrawerComp from "./Drawer";
 import { Link, NavLink } from "react-router-dom";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { handleLogOut } from "../../Redux/Register/action";
-import { Badge, Box, Button, IconButton, MenuItem, Tab, TabList, TabPanel, TabPanels, Tabs, Text, useMediaQuery, useTheme } from "@chakra-ui/react";
-// import MailIcon from '@mui/icons-material/Mail';
+import { Box, Image, Input,Text, useMediaQuery } from "@chakra-ui/react";
+import { LoginUser } from "./users";
+import { TiShoppingCart } from "react-icons/ti";
 const arr = [
   { title: "HOME", link: "/" },
   { title: "SHOP ALL", link: "/shopall" },
@@ -29,10 +21,8 @@ const arr = [
 ];
 export default function Navbar() {
   const dispatch = useDispatch();
-  const {isLogin, isUser} = useSelector((a)=>{return {isLogin: a.userReducer.isLogin, isUser:a.userReducer.isUser}},shallowEqual)
+  let {isLogin, isUser,totalCart,totalWishList} = useSelector((a)=>{return {isLogin: a.userReducer.isLogin, isUser:a.userReducer.isUser,totalCart:a.cartReducer.totalCart,totalWishList:a.cartReducer.totalWishList}},shallowEqual)
   const [isSmallerThan880] = useMediaQuery('(max-width: 880px)')
-
-  const [isSmallerThan430] = useMediaQuery('(max-width:430px)');
 
   const activePage = {
     boxShadow: "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
@@ -46,33 +36,42 @@ export default function Navbar() {
     localStorage.clear();
     dispatch(handleLogOut())
   }
-  // console.log(user)
+  useEffect(() => {
+    isUser = JSON.parse(localStorage.getItem("user"));
+if(isUser!==null)  {  LoginUser(dispatch, isUser._id);}
+  }, [])
   return (
     <React.Fragment>
       <Box style={appStyles}>
         <Box display="flex" w={"100%"} justifyContent={"space-between"} padding="0 1rem" alignContent={"center"} >
           <Link to={"/"}>
-            <img
+            <Image
               className={Styles.logo}
-              src="https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Brave_220_x_220_480x.png?v=1653304701"
+              src="./logo.png"
               alt="logo"
             />
           </Link>
 
           {isSmallerThan880 ? (
             <>
-              <div className={Styles.searchbar}>
-                <div>
-                  
+              <Box className={Styles.searchbar}>
+                <Box>
                   <GrSearch />
-                  <input type="text" placeholder="Search..." />
-                </div>
-                <Link to={ "/cart"}>
-                <BsHandbag className={Styles.icons} /></Link>
-                <Link to={"/WhiteList"}>
-              < AiOutlineHeart className={Styles.icons}/>
-                </Link>
-              </div>
+                  <Input type="search" placeholder="Search..." />
+                </Box>
+               <Link to={"/cart"}>
+                  <Box className={Styles.sup1}>
+                    <TiShoppingCart className={Styles.icons}/>
+                    { isLogin && <Text as="p">{totalCart }</Text>}
+                  </Box>
+                  </Link>
+                  <Link to={"/wishlist"}>
+                    <Box className={Styles.sup}>
+                    <AiOutlineHeart className={Styles.icons}/>
+                  { isLogin && <Text as="p">{totalWishList}</Text>}
+                    </Box>
+                  </Link>
+              </Box>
               <Box display={"flex"} alignContent="center" >
               <DrawerComp />
               </Box>
@@ -94,18 +93,24 @@ export default function Navbar() {
               <Box className={Styles.menuStyle}>
               
                 <VscSearch/>
-                <Link to={"/Card"}>
-                <BsHandbag/>
+                <Link to={"/cart"}>
+                  <Box className={Styles.sup1}>
+                    <TiShoppingCart/>
+                    { isLogin && <Text as="p">{totalCart }</Text>}
+                  </Box>
                   </Link>
-                <Link to={"/WhiteList"}>
-                <AiOutlineHeart/>
+                  <Link to={"/wishlist"}>
+                    <Box className={Styles.sup}>
+                    <AiOutlineHeart />
+                 {  isLogin && <Text as="p">{totalWishList}</Text>}
+                    </Box>
                   </Link>
                   {!isLogin ? 
                     <Link to={"/login"}>
                     <BsPersonSquare/>
                     </Link>
                     : <>
-                    <Text as="p">Suman Dhul</Text>
+                     {isUser!=null && <Text as="p">{isUser.firstName} { isUser.lastName}</Text>}
                     <IoMdLogOut onClick={userLogOut} /></>}
                     </Box>
             </>
@@ -120,7 +125,8 @@ const appStyles = {
   background: "rgb(59, 77, 62)",
   padding: "5px",
   position: "sticky",
+  top: 0,
+  zIndex:1,
   display: "flex",
   alignContent: "center",
-  // border:"5px solid yellow"
 };

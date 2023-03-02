@@ -28,7 +28,7 @@
  font-weight: 700;
 }
 .mainDiv>div:first-child>div:first-child{
-    width: 70%;
+    width: 50%;
     text-align: center;
     /* border: 2px solid blue; */
 }
@@ -45,10 +45,10 @@
         grid-template-columns: repeat(2, 1fr);
     }
     .mainDiv{
-        width:70%
+        width:100%
     }
-    .mainDiv>div:first-child>div:last-child>select{
-width: 20px;
+    .mainDiv>div:first-child>div:last-child{
+        width: 45%;
     }
 }
 @media only screen and (min-width:1px) and (max-width:500px) {
@@ -58,16 +58,19 @@ width: 20px;
     .mainDiv{
         width:100%
     }
-.mainDiv>div:first-child>div:last-child{
-    width: 50%;
-    font-size: 10px;
-}
-
-.mainDiv>div:first-child>div:last-child>select{
-    width: 20px;
-}
+    .mainDiv>div:first-child>div:last-child{
+        width: 50%;
+        font-size: 10px;
+    }
+    .mainDiv>div:first-child{
+        flex-direction: column;
+    }
 .mainDiv>div:first-child>div:first-child{
-    width: 50%;
+    width: 100%;
+    font-size: 12px;
+}
+.mainDiv>div:first-child>div:last-child{
+    width: 100%;
     font-size: 12px;
 }
 }
