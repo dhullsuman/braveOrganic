@@ -12,8 +12,8 @@ export const LoginUser = async(dispatch,userId) => {
             dispatch(handleTotalWishtlist(user.data))
           dispatch(handleLoginAgain({ user: user.data.user, isLogin: true }));
 
-            localStorage.setItem("user", JSON.stringify(user.data.user))
-            localStorage.setItem("isLogin", true)
+            localStorage.setItem("brave_user", JSON.stringify(user.data.user))
+            localStorage.setItem("brave_isLogin", true)
         }
 
      } catch (err) {
