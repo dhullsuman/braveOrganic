@@ -6,7 +6,7 @@ const userRoutes = require("./routes/user.routes");
 dotenv.config();
 const cors = require("cors");
 const cartRoute = require("./routes/cart.routes");
-// const orderRoute = require("./routes/Order.routes");
+const orderRoute = require("./routes/Orders.routes");
 const wishlistRoute = require("./routes/wishlist.routes");
 const PORT = process.env.PORT || 9000;
 const app = express();
@@ -23,7 +23,7 @@ app.use("/user", userRoutes);
 app.use("/cart", cartRoute);
 
 //connect orderRoutes
-// app.use("/order", orderRoute);
+app.use("/order", orderRoute);
 
 //connect wishlistRoutes
 app.use("/wishlist", wishlistRoute);
