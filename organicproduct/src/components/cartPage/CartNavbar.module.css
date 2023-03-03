@@ -50,3 +50,8 @@
   color: rgb(59, 77, 62);
   background-color: rgb(233, 246, 246);
 }
+@media screen and (min-width: 0) and (max-width:500px){
+.main2 > .line {
+  width: 65px;
+}
+}

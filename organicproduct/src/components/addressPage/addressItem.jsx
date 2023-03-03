@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import Styles from "./addressItem.module.css";
 import { FaUserCircle } from "react-icons/fa";
@@ -21,41 +21,42 @@ export default function AddressItem() {
 }
   return (
     <Box className={Styles.main}>
-      <HStack className={Styles.main1}>
-        <HStack>
+      <Box className={Styles.main1}>
+        <Box>
+          <Box>
           <FaUserCircle className={Styles.user} />
           <Text as="h2">Suman</Text>
-          <HStack>
+          </Box>
+          <Box>
             <MdOutlineLockOpen className={Styles.lock} />
             <Text as="p">You are securely logged in</Text>
-          </HStack>
-        </HStack>
-        <HStack>
+          </Box>
+        </Box>
+        <Box>
           <FiPhone className={Styles.phone} />
           <Text as="p">1234354354</Text>
-        </HStack>
-      </HStack>
+        </Box>
+      </Box>
       <Box className={Styles.main2}>
         <Text as="p">Your order updates & invoice will be sent to</Text>
-        <HStack>
+        <Box>
           <MdOutlineMailOutline className={Styles.mail} />
           <Text as="p">suman1997dhull@gmail.com</Text>
-          <Button>Change</Button>
-        </HStack>
+        </Box>
       </Box>
       <Box className={Styles.main3}>
-        <HStack>
+        <Box>
           <Text as="p">Delivery Address</Text>
           {/* <Text as="p" onClick={() => setModalShow(true)} cursor="pointer">+ Add Address</Text> */}
           <AddModal
         show={modalShow}
         onHide={(e) => setModalShow(e)}
       />
-        </HStack>
-        <HStack className={Styles.address}>
+        </Box>
+        <Box className={Styles.address}>
           <AddAddress check={select.one} onClick={ onChecked1} editForm={() => setModalShow(true)}/>
           <AddAddress check={select.two} onClick={onChecked2} editForm={() => setModalShow(true)}/>
-        </HStack>
+        </Box>
       </Box>
       <Box className={Styles.main4}>
         <Text as="p">Payment Method</Text>

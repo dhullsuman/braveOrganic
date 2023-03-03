@@ -29,7 +29,7 @@ export default function Cod() {
 
   return (
     <>
-      <Box className={Styles.main}>
+      <Box className={Styles.main} width={{lg:"60%", md:"80%", base:"100%"}} padding={{lg:"2vh", md:"1vh", base:"1vh"}}>
         <HStack>
           <Image
             src="https://static1.hkrtcdn.com/hknext/static/media/payment/cod-inner.svg"

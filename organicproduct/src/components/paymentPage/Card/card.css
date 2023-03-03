@@ -17,6 +17,7 @@
   @media screen and (max-width: 480px) {
     .card-item {
       /* max-width: 310px; */
+      min-width: 200px;
       height: 220px;
       width: 90%;
       margin: auto;
@@ -25,7 +26,8 @@
   }
   @media screen and (max-width: 360px) {
     .card-item {
-      height: 180px;
+      height: 200px;
+      min-width: 280px;
     }
   }
   @media screen and (max-width:800px){

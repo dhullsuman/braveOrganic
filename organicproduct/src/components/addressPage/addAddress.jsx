@@ -9,7 +9,7 @@ import { handleAddAddress } from "../../Redux/cart/action";
 export default function AddAddress({ check, onClick, editForm }) {
   const dispatch = useDispatch();
   return (
-    <Box
+    <Box width="100%"
       border={check ? "2px solid rgb(59, 77, 62)" : "2px solid gray"}
       bg={check ? "rgb(237, 245, 245)" : " "}
       onClick={onClick}

@@ -18,11 +18,11 @@ export default function Address() {
   // const cartData = useSelector((store) => store.CartReducer);
 
   return (
-      <Box display="flex" width="80%" margin="auto" p="2vh 0" gap={10}>
-          <Box width="70%">
+      <Box display={{lg:"flex", md:"block", base:"block"}} width={{lg:"80%", md:"90%", base:"90%"}} margin="auto" p="2vh 0" gap={10}>
+          <Box width={{lg:"70%", md:"100%", base:"100%"}} >
           <AddressItem />
           </Box>
-          <Box width="30%">
+          <Box width={{lg:"30%", md:"100%", base:"100%"}} mt={{md:"2vh", base:"2vh"}}>
           <OrderSummery/>
           </Box>
       </Box>

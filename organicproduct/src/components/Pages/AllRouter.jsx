@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import UserRequireAuth from "../../Routes/userRequireAuth";
+import ErrorPage from "./404Page";
 import Bestsellers from "./Bestsellers";
 import Cart from "./Cart";
 import CreateAccount from "./CreateAccount";
@@ -23,6 +24,7 @@ export default function AllRouter() {
         <Route path={"/shopall"} element={<ShopAll />} />
         <Route path={"/login"} element={<Login />} />
         <Route path={"/signup"} element={<CreateAccount />} />
+        <Route path={"*"} element={<ErrorPage />} />
         <Route
           path={"/cart"}
           element={

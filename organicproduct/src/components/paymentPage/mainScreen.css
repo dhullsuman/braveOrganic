@@ -21,7 +21,7 @@ body {
   background: #fff;
   border-radius: 10px;
   width: 45%;
-  /* padding: 10px; */
+  /* padding-top: -100px; */
   /* border: 1px solid black; */
 }
 @media screen and (max-width: 800px) {
@@ -43,7 +43,7 @@ body {
   }
   .card-form__inner {
     width: 100%;
-    margin-top: 20vh;
+    margin-top: 17vh;
     /* padding-top: 0; */
   }
   
@@ -51,7 +51,7 @@ body {
 @media screen and (max-width: 360px) {
   .card-form__inner {
     padding: 15px;
-    padding-top: 165px;
+    /* padding-top: 165px; */
   }
 }
 .card-form__row {

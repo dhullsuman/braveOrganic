@@ -29,7 +29,8 @@ export default function CForm({
   const dispatch = useDispatch();
   const toast=useToast();
   const { isUser } = useSelector((a) => a.userReducer);
-  const OrderConfirm = async (id, data) => {
+  const OrderConfirm = async (id, data, e) => {
+    e.preventDefault()
     try {
       await axios.post(`http://localhost:8080/order/add/${id}`, data);
       LoginUser(dispatch, isUser._id)
@@ -85,7 +86,7 @@ export default function CForm({
   return (
     <div className="card-form">
       <div className="card-list">{children}</div>
-      <div className="card-form__inner">
+      <form onSubmit={(e)=>OrderConfirm(isUser._id,isUser.cartItem,e)} className="card-form__inner">
         <div className="card-input">
           <label htmlFor="cardNumber" className="card-input__label">
             Card Number
@@ -96,11 +97,12 @@ export default function CForm({
             className="card-input__input"
             autoComplete="off"
             onChange={onCardNumberChange}
+            minLength="19"
             maxLength="19"
             ref={cardNumberRef}
             onFocus={(e) => onCardInputFocus(e, "cardNumber")}
             onBlur={onCardInputBlur}
-            value={cardNumber}
+            value={cardNumber} required
           />
         </div>
 
@@ -116,7 +118,7 @@ export default function CForm({
             onChange={handleFormChange}
             ref={cardHolderRef}
             onFocus={(e) => onCardInputFocus(e, "cardHolder")}
-            onBlur={onCardInputBlur}
+            onBlur={onCardInputBlur} required
           />
         </div>
 
@@ -133,7 +135,7 @@ export default function CForm({
                 onChange={handleFormChange}
                 ref={cardDateRef}
                 onFocus={(e) => onCardInputFocus(e, "cardDate")}
-                onBlur={onCardInputBlur}
+                onBlur={onCardInputBlur} required
               >
                 <option value="" disabled>
                   Month
@@ -151,7 +153,7 @@ export default function CForm({
                 value={cardYear}
                 onChange={handleFormChange}
                 onFocus={(e) => onCardInputFocus(e, "cardDate")}
-                onBlur={onCardInputBlur}
+                onBlur={onCardInputBlur} required
               >
                 <option value="" disabled>
                   Year
@@ -173,13 +175,14 @@ export default function CForm({
               <input
                 type="tel"
                 className="card-input__input"
+                minLength="3"
                 maxLength="4"
                 autoComplete="off"
                 name="cardCvv"
                 onChange={handleFormChange}
                 onFocus={onCvvFocus}
                 onBlur={onCvvBlur}
-                ref={cardCvv}
+                ref={cardCvv} required
               />
             </div>
           </div>
@@ -192,12 +195,12 @@ export default function CForm({
             padding: "5px",
             marginTop: "5px",
             borderRadius: "10px",
-          }}
-          onClick={()=>OrderConfirm(isUser._id,isUser.cartItem)}
+          }} type="submit"
+          // onClick={()=>OrderConfirm(isUser._id,isUser.cartItem)}
         >
           Payment
         </button>
-      </div>
+      </form>
     </div>
   );
 }

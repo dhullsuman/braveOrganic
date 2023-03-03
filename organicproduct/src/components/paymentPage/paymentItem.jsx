@@ -20,11 +20,11 @@ export default function PaymentItem() {
                   <Text as="p" onClick={()=>dispatch(handleAddCart())}>Change</Text>
               </HStack>
               <HStack>
-                  <HStack>
+                  <Box display="flex" flexDirection={{lg:"row", md:"row", base:"column"}} alignItems="center">
                       <MdLocationOn />
                       <Text as="p">Home</Text>
-                  </HStack>
-                  <Text as="p">H.No.689, street 11, jind, JIND, HARYANA, 126116, Phone: 7988376352</Text>
+                  </Box>
+                  <Text as="p" fontSize={{base:"14px"}}>H.No.689, street 11, jind, JIND, HARYANA, 126116, Phone: 7988376352</Text>
               </HStack>
           </Box>
           <Box className={Styles.main2}>
