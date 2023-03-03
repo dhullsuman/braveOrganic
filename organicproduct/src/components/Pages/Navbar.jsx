@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Styles from "../Styles/navbar.module.css";
-import { VscSearch } from "react-icons/vsc";
 import { AiOutlineHeart } from "react-icons/ai";
 import { GrSearch } from "react-icons/gr";
 import { BsPersonSquare } from "react-icons/bs";
@@ -28,7 +27,7 @@ import {
 import { LoginUser } from "./users";
 import { TiShoppingCart } from "react-icons/ti";
 import { handleCartReset } from "../../Redux/cart/action";
-import { IoSettingsSharp } from "react-icons/io5";
+import { CiDeliveryTruck } from "react-icons/ci";
 import { FiChevronDown } from "react-icons/fi";
 import { FaUserCircle } from "react-icons/fa";
 import axios from "axios";
@@ -87,7 +86,7 @@ export default function Navbar() {
     searchdata("");
   });
   useEffect(() => {
-    isUser = JSON.parse(localStorage.getItem("user"));
+    isUser = JSON.parse(localStorage.getItem("brave_user"));
     if (isUser !== null) {
       LoginUser(dispatch, isUser._id);
     }
@@ -137,7 +136,7 @@ export default function Navbar() {
                 
               </Box>
               <Box display={"flex"} alignContent="center">
-                <DrawerComp isUser={isUser} userLogOut={userLogOut} navigate={navigate} />
+                <DrawerComp isLogin={isLogin} isUser={isUser} userLogOut={userLogOut} navigate={navigate} />
               </Box>
             </>
           ) : (
@@ -226,7 +225,7 @@ export default function Navbar() {
                             </HStack>
                           </MenuButton>
                           <MenuList backgroundColor="rgb(59,77,62)">
-                            <MenuItem
+                            {/* <MenuItem
                               backgroundColor="rgb(59,77,62)"
                               _hover={{
                                 boxShadow:
@@ -237,7 +236,7 @@ export default function Navbar() {
                             >
                               <FaUserCircle className={Styles.menuicon} />
                               Profile
-                            </MenuItem>
+                            </MenuItem> */}
                             <MenuItem
                                   backgroundColor="rgb(59,77,62)"
                                   _hover={{
@@ -248,7 +247,7 @@ export default function Navbar() {
                                   }}
                                   onClick={()=>navigate("/order") }
                             >
-                                  <IoSettingsSharp className={Styles.menuicon} />
+                                  <CiDeliveryTruck className={Styles.menuicon} backgroundColor="white" />
                                   
                               Order
                             </MenuItem>

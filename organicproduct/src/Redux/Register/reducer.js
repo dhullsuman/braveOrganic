@@ -1,7 +1,7 @@
 import { LoginAgain, LoginFailure, LoginRequest, LoginSuccessfull, LogOut, RegisterFailure, RegisterRequest, RegisterSuccessfull } from "./actionType"
-const userData = JSON.parse(localStorage.getItem("user")) || {}
-const Token = JSON.parse(localStorage.getItem("token"))|| ""
-const isLogin = localStorage.getItem("isLogin")|| false
+const userData = JSON.parse(localStorage.getItem("brave_user")) || {}
+const Token = JSON.parse(localStorage.getItem("brave_token"))|| ""
+const isLogin = localStorage.getItem("brave_isLogin")|| false
 const initialState = {
     isLoading: false,
     isError: false,

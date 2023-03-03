@@ -1,14 +1,14 @@
 import React, { useRef } from "react";
 import { HiMenu } from "react-icons/hi";
 import Styles from "../Styles/navbar.module.css";
-import { NavLink } from "react-router-dom";
-import {  Avatar, Box, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, HStack, List, ListIcon, ListItem, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text, useDisclosure, VStack } from "@chakra-ui/react";
-import { BsFillXDiamondFill } from "react-icons/bs";
+import { Link, NavLink } from "react-router-dom";
+import {  Avatar, Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerHeader, DrawerOverlay, Flex, HStack, List, ListIcon, ListItem, Menu, MenuButton, MenuDivider, MenuItem, MenuList, Text, useDisclosure, VStack } from "@chakra-ui/react";
+import { BsFillXDiamondFill, BsPersonSquare } from "react-icons/bs";
 import { FaHome, FaUserCircle } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
 import { FiChevronDown } from "react-icons/fi";
-import { IoSettingsSharp } from "react-icons/io5";
-export default function DrawerComp({isUser,navigate,userLogOut}) {
+import { GrDeliver } from "react-icons/gr";
+export default function DrawerComp({isUser,navigate,userLogOut, isLogin}) {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef(null)
   const arr = [
@@ -31,7 +31,7 @@ export default function DrawerComp({isUser,navigate,userLogOut}) {
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader >
-          {isUser != null && (
+          {isUser != null && isLogin? (
                       <Flex alignItems={"center"}>
                         <Menu>
                           <MenuButton
@@ -64,7 +64,7 @@ export default function DrawerComp({isUser,navigate,userLogOut}) {
                             </HStack>
                           </MenuButton>
                           <MenuList backgroundColor="white">
-                            <MenuItem
+                            {/* <MenuItem onClick={onClose}
                               backgroundColor="white"
                               _hover={{
                                 boxShadow:
@@ -75,24 +75,24 @@ export default function DrawerComp({isUser,navigate,userLogOut}) {
                             >
                               <FaUserCircle className={Styles.menuicon} />
                               Profile
-                            </MenuItem>
+                            </MenuItem> */}
                             <MenuItem
-                                  backgroundColor="white"
-                                  _hover={{
-                                    boxShadow:
-                                      "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-                                    backgroundColor: "white",
-                                    color: "rgb(59,77,62)",
-                                  }}
-                                  onClick={()=>navigate("/order") }
+                      backgroundColor="white"
+                      _hover={{
+                        boxShadow:
+                          "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+                        backgroundColor: "white",
+                        color: "rgb(59,77,62)",
+                      }}
+                      onClick={() => { onClose(); navigate("/order") }}
                             >
-                                  <IoSettingsSharp className={Styles.menuicon} />
+                                  <GrDeliver className={Styles.menuicon} />
                                   
                               Order
                             </MenuItem>
                             <MenuDivider />
                             <MenuItem
-                              onClick={userLogOut}
+                      onClick={() => { onClose(); userLogOut() }}
                               backgroundColor="white"
                               _hover={{
                                 boxShadow:
@@ -107,7 +107,9 @@ export default function DrawerComp({isUser,navigate,userLogOut}) {
                           </MenuList>
                         </Menu>
                       </Flex>
-                    )}</DrawerHeader>
+                    ):<Link to={"/login"}>
+                    <BsPersonSquare onClick={onClose} />
+                  </Link>}</DrawerHeader>
 
           <DrawerBody backgroundColor="rgb(59, 77, 62)" color="white">
             <List>

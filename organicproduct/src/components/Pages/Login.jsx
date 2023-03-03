@@ -35,9 +35,9 @@ export default function Login() {
           duration: 2000,
           isClosable: true,
         });
-        localStorage.setItem("user", JSON.stringify(result.user));
-        localStorage.setItem("token", JSON.stringify(result.Token));
-        localStorage.setItem("isLogin", result.isLogin);
+        localStorage.setItem("brave_user", JSON.stringify(result.user));
+        localStorage.setItem("brave_token", JSON.stringify(result.Token));
+        localStorage.setItem("brave_isLogin", result.isLogin);
       } else {
         if (result.message === "wrongPassword") {
           toast({

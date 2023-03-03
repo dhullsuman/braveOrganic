@@ -13,7 +13,7 @@ export default function Carts() {
   let { isUser, isLogin,totalCart } = useSelector((a) => {
     return { isLogin: a.userReducer.isLogin, isUser: a.userReducer.isUser,totalCart:a.cartReducer.totalCart };
   }, shallowEqual);
-  isUser = JSON.parse(localStorage.getItem("user"));
+  isUser = JSON.parse(localStorage.getItem("brave_user"));
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
 

@@ -46,7 +46,7 @@ import {
     let { isUser, isLogin } = useSelector((a) => {
       return { isLogin: a.userReducer.isLogin, isUser: a.userReducer.isUser };
     }, shallowEqual);
-    isUser = JSON.parse(localStorage.getItem("user"));
+    isUser = JSON.parse(localStorage.getItem("brave_user"));
     const [data, setData] = useState([]);
       const dispatch = useDispatch();
       const navigate = useNavigate();
