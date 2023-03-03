@@ -91,6 +91,9 @@
   gap: 1.25rem;
 }
 
+.menuicon{
+  margin-right:2vh;
+}
 @media only screen and (min-width: 500px) and (max-width: 900px) {
   .logo {
     width: 100px;

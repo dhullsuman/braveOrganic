@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, Input, Text } from '@chakra-ui/react'
+import { Box, Button, FormControl, Input, Text, useToast } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -12,9 +12,10 @@ const initialState = {
 
 export default function Login() {
   const {state}=useLocation()
-  const isLogin = useSelector((e)=>e.userReducer.isLogin)
+  const {isLogin, isUser} = useSelector((e)=>e.userReducer)
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const toast = useToast();
   const [userData, setUserData] = useState(initialState)
   const handleLoginData = (e) => {
     const { name, value } = e.target
@@ -27,16 +28,31 @@ export default function Login() {
       const allUser = await fetch("http://localhost:8080/user/login", { method: 'POST', body: JSON.stringify(userData), headers: { 'Content-Type': 'application/json' } })
       const result= await allUser.json()
       if (result.isLogin) {
-        dispatch(handleLoginSuccessfull(result))
-        alert("Login successful")
+        dispatch(handleLoginSuccessfull(result));
+        toast({
+          title: "Login Successfully",
+          status: "success",
+          duration: 2000,
+          isClosable: true,
+        });
         localStorage.setItem("user", JSON.stringify(result.user));
         localStorage.setItem("token", JSON.stringify(result.Token));
         localStorage.setItem("isLogin", result.isLogin);
       } else {
         if (result.message === "wrongPassword") {
-          alert("Please enter a valid password")
+          toast({
+            title: "Please enter a valid Password",
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+          });
         } else if(result.message === "notRegistered") {
-          alert("Not Registered, Please create a new account")
+          toast({
+            title: "Not Registered, Please create an account",
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+          });
         }
       }
     } catch (err) {
@@ -46,7 +62,8 @@ export default function Login() {
   useEffect(() => {
     if (isLogin) {
       if (state === null) {
-        navigate("/")
+        if(isUser.role==="admin") navigate("/admin")
+        else navigate("/")
       } else {
         navigate(state.from,{replace:true})
       }

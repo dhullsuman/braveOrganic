@@ -2,6 +2,7 @@ import { Box, Button, HStack, Image, Stack, Text } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { handleCartReset } from "../../Redux/cart/action";
 import { LoginUser } from "../Pages/users";
 import Styles from "./Cart.module.css";
 import CartItem from "./CartItem";
@@ -16,10 +17,12 @@ export default function Carts() {
   const [data, setData] = useState([]);
   const dispatch = useDispatch();
 
-  // console.log(totalCart);
   useEffect(() => {
     setData(isUser.cartItem);
     LoginUser(dispatch, isUser._id);
+    dispatch(handleCartReset());
+
+
   }, [isUser._id, isUser.cartItem?.length]);
   return (
     <Box w={{lg:"80%",md:"95%",base:"90%"}} display={{lg:"flex",md:"flex",base:"block"}} margin="auto"  gap={6} padding="1.5rem 0" justifyContent={"center"} >

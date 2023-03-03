@@ -8,6 +8,7 @@ import CreateAccount from "./CreateAccount";
 import Landing from "./Landing";
 import Login from "./Login";
 import NewArrival from "./NewArrival";
+import AllOrder from "./Order";
 import ShopAll from "./ShopAll";
 import SinglePage from "./SinglePage";
 import WhiteList from "./WhiteList";
@@ -35,6 +36,14 @@ export default function AllRouter() {
           element={
             <UserRequireAuth>
               <WhiteList />
+            </UserRequireAuth>
+          }
+        />
+        <Route
+          path={"/order"}
+          element={
+            <UserRequireAuth>
+              <AllOrder/>
             </UserRequireAuth>
           }
         />

@@ -37,7 +37,8 @@ const orderSchema = mongoose.Schema({
         type: Number,
         default:1
     },
-    userID:String
+  userID: String,
+  status:String
 });
 
 const OrderModel = mongoose.model("order", orderSchema);

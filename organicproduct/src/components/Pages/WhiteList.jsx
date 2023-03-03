@@ -9,7 +9,7 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { shallowEqual, useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Styles from "../Styles/whiteList.module.css";
 import { AddToCart, LoginUser } from "./users";
 
@@ -87,7 +87,11 @@ export default function WhiteList() {
     LoginUser(dispatch, isUser._id);
   }, [isUser._id, isUser.wishList?.length]);
 
-  return (
+  return (<Box w={{lg:"100%",md:"95%",base:"90%"}} display={{lg:"flex",md:"flex",base:"block"}} margin="auto"  gap={6} padding="1.5rem 0" justifyContent={"center"}>{ data?.length===0?<Box display="flex" alignItems="center" flexDirection="column"> <Image src="./wish.jpg" alt="" />
+  <Button w="fit-content" margin="auto" color="white" bg="rgb(59,77,62)" colorScheme="rgb(59,77,62)">
+  <Link to="/shopall">Continue Shopping</Link>
+</Button>
+  </Box>:
     <Box className={Styles.mainDiv}>
       <Box>
         <Text as="h1">MY FAVOURITES</Text>
@@ -110,5 +114,7 @@ export default function WhiteList() {
         ))}
       </SimpleGrid>
     </Box>
+    }</Box>
+
   );
 }

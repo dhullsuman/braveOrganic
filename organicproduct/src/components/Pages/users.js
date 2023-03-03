@@ -1,5 +1,5 @@
 import axios from "axios";
-import { handleTotalItems, handleTotalWishtlist } from "../../Redux/cart/action";
+import { handleCartReset, handleTotalItems, handleTotalPrice, handleTotalWishtlist } from "../../Redux/cart/action";
 import { handleLoginAgain, handleLoginFailure, handleLoginRequest } from "../../Redux/Register/action"
 
 export const LoginUser = async(dispatch,userId) => {
@@ -8,6 +8,7 @@ export const LoginUser = async(dispatch,userId) => {
         if (userId) {
             const user = await axios(`http://localhost:8080/user/${userId}`);
             dispatch(handleTotalItems(user.data))
+            dispatch(handleTotalPrice(user.data))
             dispatch(handleTotalWishtlist(user.data))
           dispatch(handleLoginAgain({ user: user.data.user, isLogin: true }));
 
@@ -65,7 +66,8 @@ export async function AddToCart(id,data,setCart,toast,isLogin,dispatch) {
     } else {
       setCart(true);
       await axios.post(`http://localhost:8080/cart/add/${id}`, data);
-    LoginUser(dispatch,id)
+      LoginUser(dispatch, id)
+      dispatch(handleCartReset());
       toast({
         title: "Added Successfully",
       description:"In Cart",
@@ -93,5 +95,6 @@ export const ChangeQuentity = async(id,product,setQuty,quty,a,dispatch) => {
     setQuty(quty+a);
   const data=await axios.post(`http://localhost:8080/cart/edit/${id}`,product)
   dispatch(handleTotalItems(data.data))
-  LoginUser(dispatch,id);
+  LoginUser(dispatch, id);
+  dispatch(handleCartReset());
   }

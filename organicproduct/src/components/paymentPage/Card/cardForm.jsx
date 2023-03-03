@@ -1,5 +1,9 @@
+import { useToast } from "@chakra-ui/react";
+import axios from "axios";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { LoginUser } from "../../Pages/users";
 
 const currentYear = new Date().getFullYear();
 const monthsArr = Array.from({ length: 12 }, (x, i) => {
@@ -22,9 +26,21 @@ export default function CForm({
 }) {
   const [cardNumber, setCardNumber] = useState("");
   const navigate = useNavigate();
-  const OrderConfirm = () => {
-    alert("Order confirmed successfully");
-    navigate("/order");
+  const dispatch = useDispatch();
+  const toast=useToast();
+  const { isUser } = useSelector((a) => a.userReducer);
+  const OrderConfirm = async (id, data) => {
+    try {
+      await axios.post(`http://localhost:8080/order/add/${id}`, data);
+      LoginUser(dispatch, isUser._id)
+      toast({
+        title: "Order confirmed successfully",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+      navigate("/order");
+    }catch(err){console.log(err)}
   };
 
   const handleFormChange = (event) => {
@@ -177,7 +193,7 @@ export default function CForm({
             marginTop: "5px",
             borderRadius: "10px",
           }}
-          onClick={OrderConfirm}
+          onClick={()=>OrderConfirm(isUser._id,isUser.cartItem)}
         >
           Payment
         </button>

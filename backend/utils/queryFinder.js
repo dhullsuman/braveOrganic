@@ -4,7 +4,7 @@ class QueryFinder{
         this.query=query; //req.query
     }
 
-    search(){
+    search() {
         const keyword=this.query.keyword ?{
             title:{
                 $regex:this.query.keyword,
