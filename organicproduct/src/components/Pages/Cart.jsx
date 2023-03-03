@@ -10,7 +10,7 @@ export default function Cart() {
   const { onCart, onAdd } = useSelector((b) => { return { onCart: b.cartReducer.onCart, onAdd: b.cartReducer.onAdd,totalCart:b.cartReducer.totalCart } }, shallowEqual);
   return (
     <Box>
-      {/* <CartNavbar/> */}
+      <CartNavbar/>
       {
       onAdd && onCart ? <Payment/>: onCart ? <Address/> :<Carts />}
     </Box>

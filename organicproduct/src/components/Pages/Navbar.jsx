@@ -122,7 +122,7 @@ export default function Navbar() {
                   />
                 </Box>
                 <Link to={"/cart"}>
-                  <Box className={Styles.sup1}>
+                  <Box className={Styles.sup1} onClick={() => dispatch(handleCartReset())}>
                     <TiShoppingCart className={Styles.icons} />
                     {isLogin && <Text as="p">{totalCart}</Text>}
                   </Box>
@@ -173,10 +173,8 @@ export default function Navbar() {
                   </Box>
                   </Box>
                 <Link to={"/cart"}>
-                  <Box className={Styles.sup1}>
-                    <TiShoppingCart
-                      onClick={() => dispatch(handleCartReset())}
-                    />
+                  <Box className={Styles.sup1} onClick={() => dispatch(handleCartReset())}>
+                    <TiShoppingCart/>
                     {isLogin && <Text as="p">{totalCart}</Text>}
                   </Box>
                 </Link>

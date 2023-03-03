@@ -13,9 +13,6 @@ export default function CartNavbar() {
 
   return (
       <Flex className={Styles.main}>
-          <Box className={Styles.logo}>
-          <Image src='https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Brave_220_x_220_480x.png?v=1653304701' alt='logo' />
-          </Box>
           <Flex className={Styles.main2}>
               <Box>
                   {!onCart ? 
