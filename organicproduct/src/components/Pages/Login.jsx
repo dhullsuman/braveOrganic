@@ -89,10 +89,10 @@ export default function Login() {
   }, [isLogin]);
 
   return (
-    <Box className={Style.mainDiv}>
+    <Box className={Style.mainDiv} w={{lg:"35%", md:"70%", base:"90%"}}>
       <Box>
         <Text as="h1">Login</Text>
-        <Text as="p">To redeem your cashback you must be logged in</Text>
+        <Text as="p" fontSize={{lg:"1.25rem", md:"1.25rem", base:"1rem"}}>To redeem your cashback you must be logged in</Text>
       </Box>
       <Box className={Style.form}>
         <FormControl isRequired>

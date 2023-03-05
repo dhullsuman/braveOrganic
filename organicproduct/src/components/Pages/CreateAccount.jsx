@@ -74,7 +74,7 @@ export default function CreateAccount() {
 
   return (
     <Box>
-      <Box className={Style.mainDiv}>
+      <Box className={Style.mainDiv} w={{lg:"35%", md:"70%", base:"90%"}}>
         <Box>
           <Text as="h1">Create account</Text>
         </Box>
