@@ -10,12 +10,16 @@ import {
   RiCheckboxBlankCircleFill,
 } from "react-icons/ri";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {  solution, spotlight } from "../Data/Data";
+import { solution, spotlight } from "../Data/Data";
 import ProductCardPage from "./ProductCardPage";
 import { useDispatch, useSelector } from "react-redux";
-import { handleLandingProaductSucessfull, handleProaductFailure, handleProaductRequest } from "../../Redux/Products/action";
+import {
+  handleLandingProaductSucessfull,
+  handleProaductFailure,
+  handleProaductRequest,
+} from "../../Redux/Products/action";
 import axios from "axios";
-import { Box,Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 
 const images = {
   img1: "https://cdn.shopify.com/s/files/1/0054/6665/2718/files/Home-Page-Carousel-Desktop--_-1_-5-Offer_1000x.jpg?v=1671095997",
@@ -42,20 +46,22 @@ export default function Landing() {
     ref.current.src = images.img3;
     setIcon({ ...icon, image3: true, image2: false, image1: false });
   }
-  const landingProduct = useSelector((a)=>a.ProductReducer.landingProduct)
+  const landingProduct = useSelector((a) => a.ProductReducer.landingProduct);
   const dispatch = useDispatch();
   async function getArrivalData() {
-    dispatch(handleProaductRequest())
+    dispatch(handleProaductRequest());
     try {
-      const res = await axios.get(`http://localhost:8080/products?subCat=best&limit=10`);
-      dispatch(handleLandingProaductSucessfull(res.data.data))
+      const res = await axios.get(
+        `https://braveorganic.onrender.com/products?subCat=best&limit=10`
+      );
+      dispatch(handleLandingProaductSucessfull(res.data.data));
     } catch (e) {
-      dispatch(handleProaductFailure())
+      dispatch(handleProaductFailure());
     }
   }
   useEffect(() => {
     getArrivalData();
-  },[]) 
+  }, []);
   return (
     <>
       <Box className={Styles.main}>
@@ -92,8 +98,9 @@ export default function Landing() {
             <Box></Box>
           </Box>
           <Box>
-            <Swiper className={Styles.swiper} id="swiper"
-
+            <Swiper
+              className={Styles.swiper}
+              id="swiper"
               centeredSlides={false}
               slidesPerGroupSkip={10}
               grabCursor={false}
@@ -103,37 +110,32 @@ export default function Landing() {
               breakpoints={{
                 // when window width is >= 640px
                 320: {
-
                   slidesPerView: 0.9,
                   spaceBetween: 0,
                 },
                 426: {
-
                   slidesPerView: 1.9,
                   spaceBetween: 10,
                 },
                 // when window width is >= 770px
                 770: {
-
                   slidesPerView: 3.9,
                   spaceBetween: 3,
                 },
               }}
-
               scrollbar={false}
-        navigation={false}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Keyboard, Pagination]}>
+              navigation={false}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Keyboard, Pagination]}
+            >
               {landingProduct?.map((elem) => (
                 <SwiperSlide key={elem._id} className={Styles.swipers}>
-                  <ProductCardPage itemsData={elem} cat="home"  />
+                  <ProductCardPage itemsData={elem} cat="home" />
                 </SwiperSlide>
               ))}
             </Swiper>
-
-
           </Box>
         </Box>
         <Box className={Styles.mainDiv4}>

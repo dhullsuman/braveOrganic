@@ -27,13 +27,16 @@ export default function CForm({
   const [cardNumber, setCardNumber] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const toast=useToast();
+  const toast = useToast();
   const { isUser } = useSelector((a) => a.userReducer);
   const OrderConfirm = async (id, data, e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/order/add/${id}`, data);
-      LoginUser(dispatch, isUser._id)
+      await axios.post(
+        `https://braveorganic.onrender.com/order/add/${id}`,
+        data
+      );
+      LoginUser(dispatch, isUser._id);
       toast({
         title: "Order confirmed successfully",
         status: "success",
@@ -41,7 +44,9 @@ export default function CForm({
         isClosable: true,
       });
       navigate("/order");
-    }catch(err){console.log(err)}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleFormChange = (event) => {
@@ -86,7 +91,10 @@ export default function CForm({
   return (
     <div className="card-form">
       <div className="card-list">{children}</div>
-      <form onSubmit={(e)=>OrderConfirm(isUser._id,isUser.cartItem,e)} className="card-form__inner">
+      <form
+        onSubmit={(e) => OrderConfirm(isUser._id, isUser.cartItem, e)}
+        className="card-form__inner"
+      >
         <div className="card-input">
           <label htmlFor="cardNumber" className="card-input__label">
             Card Number
@@ -102,7 +110,8 @@ export default function CForm({
             ref={cardNumberRef}
             onFocus={(e) => onCardInputFocus(e, "cardNumber")}
             onBlur={onCardInputBlur}
-            value={cardNumber} required
+            value={cardNumber}
+            required
           />
         </div>
 
@@ -118,7 +127,8 @@ export default function CForm({
             onChange={handleFormChange}
             ref={cardHolderRef}
             onFocus={(e) => onCardInputFocus(e, "cardHolder")}
-            onBlur={onCardInputBlur} required
+            onBlur={onCardInputBlur}
+            required
           />
         </div>
 
@@ -135,7 +145,8 @@ export default function CForm({
                 onChange={handleFormChange}
                 ref={cardDateRef}
                 onFocus={(e) => onCardInputFocus(e, "cardDate")}
-                onBlur={onCardInputBlur} required
+                onBlur={onCardInputBlur}
+                required
               >
                 <option value="" disabled>
                   Month
@@ -153,7 +164,8 @@ export default function CForm({
                 value={cardYear}
                 onChange={handleFormChange}
                 onFocus={(e) => onCardInputFocus(e, "cardDate")}
-                onBlur={onCardInputBlur} required
+                onBlur={onCardInputBlur}
+                required
               >
                 <option value="" disabled>
                   Year
@@ -182,7 +194,8 @@ export default function CForm({
                 onChange={handleFormChange}
                 onFocus={onCvvFocus}
                 onBlur={onCvvBlur}
-                ref={cardCvv} required
+                ref={cardCvv}
+                required
               />
             </div>
           </div>
@@ -195,7 +208,8 @@ export default function CForm({
             padding: "5px",
             marginTop: "5px",
             borderRadius: "10px",
-          }} type="submit"
+          }}
+          type="submit"
           // onClick={()=>OrderConfirm(isUser._id,isUser.cartItem)}
         >
           Payment

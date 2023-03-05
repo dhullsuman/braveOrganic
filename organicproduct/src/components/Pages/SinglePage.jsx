@@ -29,14 +29,16 @@ export default function SinglePage() {
   const dispatch = useDispatch();
   async function getArrivalData() {
     try {
-      const res = await axios.get(`http://localhost:8080/products/${id.id}`);
+      const res = await axios.get(
+        `https://braveorganic.onrender.com/products/${id.id}`
+      );
       setData(res.data.singleProduct);
     } catch (e) {}
   }
 
   function ChangeQty(a) {
-    setquty(quty+a)
-    const newData = { ...data, qty: quty+a };
+    setquty(quty + a);
+    const newData = { ...data, qty: quty + a };
     console.log(newData);
   }
 
@@ -46,12 +48,14 @@ export default function SinglePage() {
       const CartFilter = isUser.cartItem?.filter((el) => el._id === id.id);
       if (WistFilter?.length > 0) setWisht(true);
       else setWisht(false);
-      if (CartFilter?.length > 0) {setCart(true); setquty(CartFilter[0].qty)}
-      else setCart(false);
+      if (CartFilter?.length > 0) {
+        setCart(true);
+        setquty(CartFilter[0].qty);
+      } else setCart(false);
       LoginUser(dispatch, isUser._id);
     }
     getArrivalData();
-  }, [id, isUser.wishList?.length,isUser.cartItem?.length]);
+  }, [id, isUser.wishList?.length, isUser.cartItem?.length]);
 
   return (
     <>
@@ -83,14 +87,27 @@ export default function SinglePage() {
               <BiHeart
                 className={Styles.heart}
                 onClick={() =>
-                  AddToFavourites(isUser._id, data, setWisht, toast, isLogin,dispatch)
+                  AddToFavourites(
+                    isUser._id,
+                    data,
+                    setWisht,
+                    toast,
+                    isLogin,
+                    dispatch
+                  )
                 }
               />
             ) : (
               <AiFillHeart
                 className={Styles.heart}
                 onClick={() =>
-                  RemoveWishlistItem(isUser._id, data, setWisht, toast,dispatch)
+                  RemoveWishlistItem(
+                    isUser._id,
+                    data,
+                    setWisht,
+                    toast,
+                    dispatch
+                  )
                 }
               />
             )}
@@ -136,7 +153,7 @@ export default function SinglePage() {
           <Box>
             <Box>
               <Text as="p">-{data.Off}</Text>
-              <Text as="p">₹{Number(data.price)*quty}</Text>
+              <Text as="p">₹{Number(data.price) * quty}</Text>
             </Box>
             <Text as="p">{data.rating}★</Text>
             {/* </div> */}
@@ -148,11 +165,21 @@ export default function SinglePage() {
             <Text as="p">Inclusive of all taxes</Text>
           </Box>
           <Box>
-            <Button onClick={() => ChangeQuentity(isUser._id,data,setquty,quty,-1,dispatch)}isDisabled={quty === 1}>
+            <Button
+              onClick={() =>
+                ChangeQuentity(isUser._id, data, setquty, quty, -1, dispatch)
+              }
+              isDisabled={quty === 1}
+            >
               -
             </Button>
             <Button>{quty}</Button>
-            <Button onClick={() => ChangeQuentity(isUser._id,data,setquty,quty,1,dispatch)} isDisabled={quty === 5}>
+            <Button
+              onClick={() =>
+                ChangeQuentity(isUser._id, data, setquty, quty, 1, dispatch)
+              }
+              isDisabled={quty === 5}
+            >
               +
             </Button>
           </Box>
@@ -161,7 +188,14 @@ export default function SinglePage() {
           ) : (
             <Button
               onClick={() =>
-                AddToCart(isUser._id, {...data,qty:quty}, setCart, toast, isLogin,dispatch)
+                AddToCart(
+                  isUser._id,
+                  { ...data, qty: quty },
+                  setCart,
+                  toast,
+                  isLogin,
+                  dispatch
+                )
               }
             >
               ADD TO CART

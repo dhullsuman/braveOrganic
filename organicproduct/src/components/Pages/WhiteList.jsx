@@ -20,7 +20,10 @@ function WhiteListItem({ el, isLogin, dispatch, isUser }) {
   const toast = useToast();
 
   const RemoveWishlistItem = async (id, products) => {
-    await axios.post(`http://localhost:8080/wishlist/delete/${id}`, products);
+    await axios.post(
+      `https://braveorganic.onrender.com/wishlist/delete/${id}`,
+      products
+    );
     LoginUser(dispatch, isUser._id);
     toast({
       title: "Remove Successfully",
@@ -59,7 +62,14 @@ function WhiteListItem({ el, isLogin, dispatch, isUser }) {
           ) : (
             <Button
               onClick={() =>
-                AddToCart(isUser._id, {...el,qty:1}, setCart, toast, isLogin,dispatch)
+                AddToCart(
+                  isUser._id,
+                  { ...el, qty: 1 },
+                  setCart,
+                  toast,
+                  isLogin,
+                  dispatch
+                )
               }
             >
               Add to Cart
@@ -87,34 +97,53 @@ export default function WhiteList() {
     LoginUser(dispatch, isUser._id);
   }, [isUser._id, isUser.wishList?.length]);
 
-  return (<Box w={{lg:"100%",md:"95%",base:"90%"}} display={{lg:"flex",md:"flex",base:"block"}} margin="auto"  gap={6} padding="1.5rem 0" justifyContent={"center"}>{ data?.length===0?<Box display="flex" alignItems="center" flexDirection="column"> <Image src="./wish.jpg" alt="" />
-  <Button w="fit-content" margin="auto" color="white" bg="rgb(59,77,62)" colorScheme="rgb(59,77,62)">
-  <Link to="/shopall">Continue Shopping</Link>
-</Button>
-  </Box>:
-    <Box className={Styles.mainDiv}>
-      <Box>
-        <Text as="h1">MY FAVOURITES</Text>
-      </Box>
-
-      <SimpleGrid
-        columns={[1, 2, 2, 3, 3]}
-        width={{ base: "100%", sm: "90%", md: "100%", lg: "90%" }}
-        p={{ base: "2vh 1vh", md: "3vh 1vh", lg: "3vh 0" }}
-      >
-        {data?.map((el) => (
-          <Box className={Styles.whtList} key={el._id}>
-            <WhiteListItem
-              el={el}
-              isLogin={isLogin}
-              dispatch={dispatch}
-              isUser={isUser}
-            />
+  return (
+    <Box
+      w={{ lg: "100%", md: "95%", base: "90%" }}
+      display={{ lg: "flex", md: "flex", base: "block" }}
+      margin="auto"
+      gap={6}
+      padding="1.5rem 0"
+      justifyContent={"center"}
+    >
+      {data?.length === 0 ? (
+        <Box display="flex" alignItems="center" flexDirection="column">
+          {" "}
+          <Image src="./wish.jpg" alt="" />
+          <Button
+            w="fit-content"
+            margin="auto"
+            color="white"
+            bg="rgb(59,77,62)"
+            colorScheme="rgb(59,77,62)"
+          >
+            <Link to="/shopall">Continue Shopping</Link>
+          </Button>
+        </Box>
+      ) : (
+        <Box className={Styles.mainDiv}>
+          <Box>
+            <Text as="h1">MY FAVOURITES</Text>
           </Box>
-        ))}
-      </SimpleGrid>
-    </Box>
-    }</Box>
 
+          <SimpleGrid
+            columns={[1, 2, 2, 3, 3]}
+            width={{ base: "100%", sm: "90%", md: "100%", lg: "90%" }}
+            p={{ base: "2vh 1vh", md: "3vh 1vh", lg: "3vh 0" }}
+          >
+            {data?.map((el) => (
+              <Box className={Styles.whtList} key={el._id}>
+                <WhiteListItem
+                  el={el}
+                  isLogin={isLogin}
+                  dispatch={dispatch}
+                  isUser={isUser}
+                />
+              </Box>
+            ))}
+          </SimpleGrid>
+        </Box>
+      )}
+    </Box>
   );
 }

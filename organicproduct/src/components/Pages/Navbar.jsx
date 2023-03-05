@@ -73,7 +73,7 @@ export default function Navbar() {
       if (e.length > 0) {
         div.style.display = "block";
         const searchdata = await axios.get(
-          `http://localhost:8080/products?keyword=${e}&limit=100000`
+          `https://braveorganic.onrender.com/products?keyword=${e}&limit=100000`
         );
         setSearchData(searchdata.data.data);
       } else div.style.display = "none";
@@ -122,7 +122,10 @@ export default function Navbar() {
                   />
                 </Box>
                 <Link to={"/cart"}>
-                  <Box className={Styles.sup1} onClick={() => dispatch(handleCartReset())}>
+                  <Box
+                    className={Styles.sup1}
+                    onClick={() => dispatch(handleCartReset())}
+                  >
                     <TiShoppingCart className={Styles.icons} />
                     {isLogin && <Text as="p">{totalCart}</Text>}
                   </Box>
@@ -133,10 +136,14 @@ export default function Navbar() {
                     {isLogin && <Text as="p">{totalWishList}</Text>}
                   </Box>
                 </Link>
-                
               </Box>
               <Box display={"flex"} alignContent="center">
-                <DrawerComp isLogin={isLogin} isUser={isUser} userLogOut={userLogOut} navigate={navigate} />
+                <DrawerComp
+                  isLogin={isLogin}
+                  isUser={isUser}
+                  userLogOut={userLogOut}
+                  navigate={navigate}
+                />
               </Box>
             </>
           ) : (
@@ -171,10 +178,13 @@ export default function Navbar() {
                       value={ser}
                     />
                   </Box>
-                  </Box>
+                </Box>
                 <Link to={"/cart"}>
-                  <Box className={Styles.sup1} onClick={() => dispatch(handleCartReset())}>
-                    <TiShoppingCart/>
+                  <Box
+                    className={Styles.sup1}
+                    onClick={() => dispatch(handleCartReset())}
+                  >
+                    <TiShoppingCart />
                     {isLogin && <Text as="p">{totalCart}</Text>}
                   </Box>
                 </Link>
@@ -236,17 +246,19 @@ export default function Navbar() {
                               Profile
                             </MenuItem> */}
                             <MenuItem
-                                  backgroundColor="rgb(59,77,62)"
-                                  _hover={{
-                                    boxShadow:
-                                      "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-                                    backgroundColor: "white",
-                                    color: "rgb(59,77,62)",
-                                  }}
-                                  onClick={()=>navigate("/order") }
+                              backgroundColor="rgb(59,77,62)"
+                              _hover={{
+                                boxShadow:
+                                  "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
+                                backgroundColor: "white",
+                                color: "rgb(59,77,62)",
+                              }}
+                              onClick={() => navigate("/order")}
                             >
-                                  <CiDeliveryTruck className={Styles.menuicon} backgroundColor="white" />
-                                  
+                              <CiDeliveryTruck
+                                className={Styles.menuicon}
+                                backgroundColor="white"
+                              />
                               Order
                             </MenuItem>
                             <MenuDivider />
@@ -276,7 +288,7 @@ export default function Navbar() {
       </Box>
       <Box
         display="none"
-        w={{lg:"50%",md:"60%",base:"100%"}}
+        w={{ lg: "50%", md: "60%", base: "100%" }}
         m="auto"
         border="2px solid black"
         h="40vh"
@@ -298,7 +310,12 @@ export default function Navbar() {
               navigate(`/${"search"}/${el._id}`);
             }}
           >
-            <Image src={el.img1} alt={el.title} w={{lg:"20vh",md:"20vh",base:"10vh"}} h={{lg:"20vh",md:"20vh",base:"10vh"}} />
+            <Image
+              src={el.img1}
+              alt={el.title}
+              w={{ lg: "20vh", md: "20vh", base: "10vh" }}
+              h={{ lg: "20vh", md: "20vh", base: "10vh" }}
+            />
             <Text as="h2">{el.title}</Text>
           </Box>
         ))}
