@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+## BRILLIANT ORGANIC ![Badge](https://visitor-counter-badge.vercel.app/api/dhullsuman/braveOrganic/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Logo](https://drive.google.com/uc?id=1pm3Yyl6Ae0TaK79xKtVkIMiHF8mFbEqr)
 
-## Available Scripts
+## Badges
 
-In the project directory, you can run:
+[![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=brave-organic)](https://brave-organic.vercel.app/)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/dhullsuman/flat-railway-695)
 
-### `npm start`
+This is E-commerce platforms selling a wide range of body beauty products for men's and women's like face cream, perfume etc. Here you can expect to find products you'll love, superior service, and fast global shipping!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Technologies we used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- HTML
+- CSS
+- JAVASCRIPT
+- Browser LocalStorage
+- ReactJs
+- React-Redux
+- MongoDB
+- React-Router-Dom
+- ChartJs
+- Swiper
+- Chakra UI
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- There is login and logout functionality.
+- Fully responsive.
+- Admin Panel
+- Elegant navbar for easy navigation between pages and categories.
+- Customers can view the Products list of a particular category.
+- All page, showing various sizes and variants.
 
-### `npm run build`
+## Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A glimpse of our website
+## View of My Website
+- Computer View
+![Landing page](../pics/HomePage.png)
+- Tablet View
+![Home Page](../pics/tabletViewHomePage.png)
+![drawer Page](../pics/drawer.png)
+- Mobile View
+![Home Page](../pics/mobileViewHomePage.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- On this page users can signup/sign-in based on whether the user is already registered or not.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Login
+![Sign in](../pics/login.png)
 
-### `npm run eject`
+- Create Account
+![Create account](../pics/createAccount.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Product Page
+![Shopall page](../pics/shopall.png)
+- Single Product Page
+![Single Product](../pics/SingleProductPage.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Search
+![Search page](../pics/search.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<!-- ![bestseller page](../pics/bestseller.png)
+![skincare page](../pics/skincare.png)
+![bodycare page](../pics/bodycare.png)
+![combos & gift page](../pics/gift.png)
+![perfume page](../pics/perfumes.png) -->
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Shopping bag page has all the items that are added to the cart/bag by the user.
 
-## Learn More
+![Cart page](../pics/cart.png)
+- Empty Cart 
+![Empty Cart](../pics/emptyCart.png)
+- Address
+![Address page](../pics/CartAddress.png)
+- Edit Address
+![Edit Address](../pics/editAddress.png)
+- Payment COD
+![Payment Page](../pics/COD.png)
+- Payment By Card
+![Payment Page](../pics/payment.png)
+- Shopping bag page has all the items that are added to the wishlist by the user.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Wishlist page](../pics/wishlist.png)
+- Empty Wishlist
+![Empty Wishlist](../pics/emptyWishlist.png)
+- Shopping bag page has all the items that are added to the order by the user.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Order page](../pics/order.png)
+-Empty Order
+![Order page](../pics/emptyOrder.png)
 
-### Code Splitting
+- There is footer page where the user see terms and condition and connected to our social sites
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+![Footer](../pics/footer.png)
+## Admin Panel
+- Admin Dashboard
+![Dashboard](../pics/AdminDashboard.png)
+- All Product
+![Product](../pics/AdminProduct.png)
+- Add Product
+![Add Product](../pics/AddProduct.png)
+- Update Product
+![Update Product](../pics/updateProduct.png)
+- All Users
+![Users](../pics/AdminUsers.png)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Demo
 
-### Making a Progressive Web App
+[![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=brave-organic)](https://brave-organic.vercel.app/)
+[Demo link here](https://brave-organic.vercel.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Author
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Suman Dhull](https://github.com/dhullsuman)
