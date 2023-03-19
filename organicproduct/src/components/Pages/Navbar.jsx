@@ -72,6 +72,11 @@ export default function Navbar() {
     try {
       if (e.length > 0) {
         div.style.display = "block";
+        div.style.zIndex = 1;
+        div.style.position="fixed";
+        div.style.backgroundColor = "white";
+        // div.style.right = "15%";
+        div.style.borderRadius="10px"
         const searchdata = await axios.get(
           `https://braveorganic.onrender.com/products?keyword=${e}&limit=100000`
         );
@@ -233,18 +238,6 @@ export default function Navbar() {
                             </HStack>
                           </MenuButton>
                           <MenuList backgroundColor="rgb(59,77,62)">
-                            {/* <MenuItem
-                              backgroundColor="rgb(59,77,62)"
-                              _hover={{
-                                boxShadow:
-                                  "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset",
-                                backgroundColor: "white",
-                                color: "rgb(59,77,62)",
-                              }}
-                            >
-                              <FaUserCircle className={Styles.menuicon} />
-                              Profile
-                            </MenuItem> */}
                             <MenuItem
                               backgroundColor="rgb(59,77,62)"
                               _hover={{
@@ -294,6 +287,7 @@ export default function Navbar() {
         h="40vh"
         overflowY="scroll"
         scrollBehavior="smooth"
+        right={{lg:"15%", md:"15%", base:"0"}}
         id="search"
       >
         {searchdatas?.map((el) => (
@@ -304,6 +298,7 @@ export default function Navbar() {
             gap={"10vh"}
             w="100%"
             p="1vh"
+            backgroundColor="white"
             boxShadow="rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
             onClick={() => {
               setSearch("");
