@@ -7,12 +7,15 @@ const productRoutes = express.Router();
 //for all product (https://braveorganic.onrender.com/products)
 
 productRoutes.get("/", async (req, res) => {
-  const { mainCat, limit } = req.query;
+  const { mainCat, limit, subCat } = req.query;
+  // console.log(mainCat)
   try {
     const totalProductPerPage = limit || 20;
     const totalProduct = await ProductModel.countDocuments();
-    const result = await ProductModel.find({ mainCat });
-    // console.log(mainCat)
+    let result;
+    if(mainCat) result=await ProductModel.find({mainCat})
+    else  result = await ProductModel.find({subCat});
+    // console.log(result.length)
     const newProduct = new QueryFinder(ProductModel.find(), req.query)
       .sort()
       .search()
@@ -25,7 +28,7 @@ productRoutes.get("/", async (req, res) => {
         status: "Successfull",
         data: product,
         totalProduct,
-        prod: result.length,
+        prod: Math.ceil(result.length/totalProductPerPage),
         limit: totalProductPerPage,
       });
   } catch (err) {

@@ -1,10 +1,12 @@
 import { Box, Select, Text } from '@chakra-ui/react';
 import React, { useEffect } from 'react'
 import { useState } from 'react';
+import Paginate from '../Admin/Paginate';
 import Styles from "../Styles/product.module.css"
 import ProductCardPage from './ProductCardPage'
 
-export default function Product({ name, data, cat }) {
+export default function Product({ name, data, cat,current,setPage,totalPage }) {
+  // console.log(data);
   const [sorting, setsorting] = useState([...data])
   const [istrue, setisture] = useState(0)
   function sortByPrice(event) {
@@ -27,11 +29,11 @@ export default function Product({ name, data, cat }) {
 //  console.log(process.env.REACT_APP_URL)
   useEffect(() => {
     setisture(0)
-  }, [sorting, istrue])
+  }, [sorting, istrue,current])
   useEffect(() => {
     setsorting([...data])
 
-  },[])
+  },[current,data])
   return (
     <Box className={Styles.mainDiv}>
       <Box>
@@ -48,7 +50,8 @@ export default function Product({ name, data, cat }) {
             </Select>
         </Box>
       </Box>
-      <Box>{sorting.map((elem) => <ProductCardPage key={elem._id} itemsData={elem} cat={cat} />)}</Box>
+      <Box>{sorting.map((elem) => <ProductCardPage key={elem._id} itemsData={elem} cat={cat} current={ current} />)}</Box>
+      <Paginate current={current} totalPage={totalPage } setPage={setPage} />
     </Box>
   )
 }

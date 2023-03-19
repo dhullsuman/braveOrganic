@@ -8,7 +8,7 @@ import axios from "axios";
 import { useSelector,shallowEqual, useDispatch } from "react-redux";
 import { AddToCart, AddToFavourites, LoginUser, RemoveWishlistItem } from "./users";
 
-export default function ProductCardPage({ itemsData, cat }) {
+export default function ProductCardPage({ itemsData, cat ,current}) {
   const { isUser,isLogin } = useSelector((a) => { return { isLogin: a.userReducer.isLogin, isUser: a.userReducer.isUser } }, shallowEqual);
   const ref = useRef(null);
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ useEffect(() => {
     LoginUser(dispatch, isUser._id);
   }
   // getArrivalData();
-}, [itemsData.id, isUser.wishList?.length,isUser.cartItem?.length]);
+}, [itemsData.id, isUser.wishList?.length,isUser.cartItem?.length,current]);
   return (
     <Box id={cat==="home" ? Styles.main:""} className={Styles.main} onMouseOver={onHover} onMouseOut={outHover} >
       <Box>
@@ -71,4 +71,3 @@ useEffect(() => {
     </Box>
   );
 }
-

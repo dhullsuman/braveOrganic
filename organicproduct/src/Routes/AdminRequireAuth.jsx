@@ -2,16 +2,19 @@ import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
 
 const AdminRequireAuth = ({ children }) => {
-  const isAuth = useSelector((store) => store.adminAuth.isAuth);
+  const { isAuth,isUser, isLogin } = useSelector((store) => store.userReducer);
   const { pathname } = useLocation();
 
-  if (isAuth) {
+  if (isUser.role==="admin" &&isAuth) {
     return children;
-  } else {
+  } else if (isUser.role==="user"&&isLogin) { 
+    return <Navigate to="/"/>
+  }
+  else {
     return (
       // Redirecting to Login page
       <Navigate
-        to="/admin-login"
+        to="/login"
         state={{ from: pathname }}
         replace
         // spacer

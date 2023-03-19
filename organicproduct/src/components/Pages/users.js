@@ -10,21 +10,46 @@ import {
   handleLoginFailure,
   handleLoginRequest,
 } from "../../Redux/Register/action";
+const token = JSON.parse(localStorage.getItem("brave_token"));
+const config = {
+  headers: {
+    token: token,
+  },
+};
 
 export const LoginUser = async (dispatch, userId) => {
   dispatch(handleLoginRequest());
   try {
     if (userId) {
       const user = await axios(
-        `https://braveorganic.onrender.com/user/${userId}`
+        `https://braveorganic.onrender.com/user/${userId}`,
+        config
       );
       dispatch(handleTotalItems(user.data));
       dispatch(handleTotalPrice(user.data));
       dispatch(handleTotalWishtlist(user.data));
-      dispatch(handleLoginAgain({ user: user.data.user, isLogin: true }));
-
+      if (user.data.user.role === "admin") {
+        dispatch(
+          handleLoginAgain({
+            user: user.data.user,
+            isLogin: true,
+            isAuth: true,
+          })
+        );
+      } else {
+        dispatch(
+          handleLoginAgain({
+            user: user.data.user,
+            isLogin: true,
+            isAuth: false,
+          })
+        );
+      }
       localStorage.setItem("brave_user", JSON.stringify(user.data.user));
       localStorage.setItem("brave_isLogin", true);
+      if (user.data.user.role === "admin") {
+        localStorage.setItem("brave_isAuth", true);
+      }
     }
   } catch (err) {
     dispatch(handleLoginFailure());

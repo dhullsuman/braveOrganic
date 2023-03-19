@@ -22,7 +22,8 @@ const userSchema = mongoose.Schema({
     orderItem: Array,
     role: { type: String, default: "user" },
     
-    addAddress:Object
+    addAddress: Object,
+    avatar:String
     // {
     //     type: Object,
         // pinCode: { type: Number, required: true, default: 126116 }, landmark: String, city: { type: String, required: true }, state: { type: String, required: true }, mob: {

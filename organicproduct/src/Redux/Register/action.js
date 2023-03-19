@@ -22,7 +22,6 @@ export const handleLoginAgain = (a) => {
 export const handleLoginFailure = () => {
     return { type: LoginFailure }
 }
-
 export const handleLoginRequest = () => {
     return {type:LoginRequest}
 }
