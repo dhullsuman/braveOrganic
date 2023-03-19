@@ -40,6 +40,7 @@ A glimpse of our website
 ![Landing page](./pics/HomePage.png)
 - Tablet View
 ![Home Page](./pics/tabletViewHomePage.png)
+- Drawer
 ![drawer Page](./pics/drawer.png)
 - Mobile View
 ![Home Page](./pics/MobileViewHomePage.png)
