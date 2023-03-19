@@ -5,7 +5,7 @@
 ## Badges
 
 [![Vercel Status](https://therealsujitk-vercel-badge.vercel.app/?app=brave-organic)](https://brave-organic.vercel.app/)
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/dhullsuman/flat-railway-695)
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://github.com/dhullsuman/braveOrganic)
 
 This is E-commerce platforms selling a wide range of body beauty products for men's and women's like face cream, perfume etc. Here you can expect to find products you'll love, superior service, and fast global shipping!
 
