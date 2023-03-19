@@ -42,18 +42,18 @@ A glimpse of our website
 ![Home Page](./pics/tabletViewHomePage.png)
 ![drawer Page](./pics/drawer.png)
 - Mobile View
-![Home Page](./pics/mobileViewHomePage.png)
+![Home Page](./pics/MobileViewHomePage.png)
 
 - On this page users can signup/sign-in based on whether the user is already registered or not.
 
 - Login
-![Sign in](./pics/login.png)
+![Sign in](./pics/Login.png)
 
 - Create Account
 ![Create account](./pics/createAccount.png)
 
 - Product Page
-![Shopall page](./pics/shopall.png)
+![Shopall page](./pics/shopAll.png)
 - Single Product Page
 ![Single Product](./pics/SingleProductPage.png)
 
@@ -68,7 +68,7 @@ A glimpse of our website
 
 - Shopping bag page has all the items that are added to the cart/bag by the user.
 
-![Cart page](./pics/cart.png)
+![Cart page](./pics/Cart.png)
 - Empty Cart 
 ![Empty Cart](./pics/emptyCart.png)
 - Address
@@ -78,7 +78,7 @@ A glimpse of our website
 - Payment COD
 ![Payment Page](./pics/COD.png)
 - Payment By Card
-![Payment Page](./pics/payment.png)
+![Payment Page](./pics/Payment.png)
 - Shopping bag page has all the items that are added to the wishlist by the user.
 
 ![Wishlist page](./pics/wishlist.png)
