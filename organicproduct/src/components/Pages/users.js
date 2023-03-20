@@ -36,7 +36,8 @@ export const LoginUser = async (dispatch, userId) => {
             isAuth: true,
           })
         );
-      } else {
+        localStorage.setItem("brave_isAuth", true);
+      } else if(user.data.user.role==="user") {
         dispatch(
           handleLoginAgain({
             user: user.data.user,
@@ -44,11 +45,8 @@ export const LoginUser = async (dispatch, userId) => {
             isAuth: false,
           })
         );
-      }
-      localStorage.setItem("brave_user", JSON.stringify(user.data.user));
-      localStorage.setItem("brave_isLogin", true);
-      if (user.data.user.role === "admin") {
-        localStorage.setItem("brave_isAuth", true);
+        localStorage.setItem("brave_user", JSON.stringify(user.data.user));
+        localStorage.setItem("brave_isLogin", true);
       }
     }
   } catch (err) {
